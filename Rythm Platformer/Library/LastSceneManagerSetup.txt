@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/Ressources/Scenes/Abdul's Masterpiece.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
