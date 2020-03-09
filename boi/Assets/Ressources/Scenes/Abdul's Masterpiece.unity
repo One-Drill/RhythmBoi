@@ -13387,7 +13387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358381533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -94.8, y: 69.1, z: -2652.0938}
+  m_LocalPosition: {x: 4.6, y: 20.9, z: -2652.0938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 44798958}
@@ -14681,11 +14681,31 @@ PrefabInstance:
       propertyPath: bpm
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 142829629331324883, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: audioOffset
+      value: -0.789
+      objectReference: {fileID: 0}
     - target: {fileID: 142829629331324884, guid: aebb328f3cfce744ab644cab2c43556e,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 54833551850788b41a211bbf81de576f, type: 3}
+      objectReference: {fileID: 8300000, guid: a9a97be157ab5b24f8403213a8076327, type: 3}
+    - target: {fileID: 142829629331324884, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 142829629331324884, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 142829629331324884, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 142829629331324885, guid: aebb328f3cfce744ab644cab2c43556e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14745,6 +14765,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rythm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892799850427457067, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887416624144793019, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a4c9e73c8bb0ff43b156bb9d6122c1e, type: 3}
+    - target: {fileID: 6887416624144793019, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebb328f3cfce744ab644cab2c43556e, type: 3}
@@ -54756,12 +54791,12 @@ PrefabInstance:
     - target: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 146.6
+      value: 104.6
       objectReference: {fileID: 0}
     - target: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -111.1
+      value: -77.3
       objectReference: {fileID: 0}
     - target: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}

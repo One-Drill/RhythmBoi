@@ -8,16 +8,12 @@ public class TempoSignal : MonoBehaviour
     public static TempoSignal Instance { get; private set; }
 
     private float startingTime;
-    private float currentTime;
     public float bpm;
     public float tolerance = 0.2f;
     private AudioSource music;
     public AudioSource snare;
     public float audioOffset = 0.25f;
-    private bool hasBeaten = false;
-    private bool hasBeaten2 = false;
-    private float n;
-    private float somme;
+    private bool hasBeaten;
     
 
     void Awake()
@@ -25,11 +21,8 @@ public class TempoSignal : MonoBehaviour
         Application.targetFrameRate = 60;
         Instance = this;
         music = GetComponent<AudioSource>();
-        music.Play();
-        startingTime = music.time + audioOffset;
-        currentTime = startingTime;
-        n = 0;
-        somme = 0;
+        startingTime = Time.time;
+        hasBeaten = true;
     }
 
 
@@ -52,7 +45,7 @@ public class TempoSignal : MonoBehaviour
     }
     public float indicateBeat()
     {
-        float currentTime = music.time - startingTime;
+        float currentTime = Time.time - startingTime + audioOffset;
         float spb = 60 / bpm;
         float toPreviousBeat = currentTime % spb;
 
@@ -65,7 +58,7 @@ public class TempoSignal : MonoBehaviour
 
     public float distanceToBeat()
     {
-        float currentTime = music.time - startingTime;
+        float currentTime = Time.time - startingTime + audioOffset;
         float spb = 60 / bpm;
         float toPreviousBeat = currentTime % spb;
         float toNextBeat = spb - toPreviousBeat;
@@ -76,6 +69,14 @@ public class TempoSignal : MonoBehaviour
 
     void Update()
     {
+        if (!music.isPlaying && indicateBeat() == 1 && !hasBeaten)
+        {
+            music.Play();
+            hasBeaten = true;
+        }
+        if (indicateBeat() == 0)
+            hasBeaten = false;
+
         if (Input.GetKeyDown("p"))
         {
             

@@ -11,7 +11,7 @@ public class FollowerOfTheRhythm : MonoBehaviour
     void Start()
     {
         globalTempo = TempoSignal.Instance;
-        hasBeaten = false;
+        hasBeaten = true;
     }
 
     void Update()
