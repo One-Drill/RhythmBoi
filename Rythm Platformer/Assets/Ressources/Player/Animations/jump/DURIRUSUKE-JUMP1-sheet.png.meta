@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: a686335dfe4934a2e857fe0a0cafb842
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2060025481394006700
+    second: DURIRUSUKE-JUMP1-sheet_0
+  - first:
+      213: -4296876930402086138
+    second: DURIRUSUKE-JUMP1-sheet_1
+  - first:
+      213: -6133881136931029561
+    second: DURIRUSUKE-JUMP1-sheet_2
+  - first:
+      213: 1953196614010703104
+    second: DURIRUSUKE-JUMP1-sheet_3
+  - first:
+      213: 3421855902167637085
+    second: DURIRUSUKE-JUMP1-sheet_4
+  - first:
+      213: -7242235550962069317
+    second: DURIRUSUKE-JUMP1-sheet_5
+  - first:
+      213: 1082634495485418202
+    second: DURIRUSUKE-JUMP1-sheet_6
+  - first:
+      213: 4141480336350571587
+    second: DURIRUSUKE-JUMP1-sheet_7
+  - first:
+      213: -7737262623199024049
+    second: DURIRUSUKE-JUMP1-sheet_8
+  - first:
+      213: -3258931908511393771
+    second: DURIRUSUKE-JUMP1-sheet_9
+  - first:
+      213: 4885497541793719256
+    second: DURIRUSUKE-JUMP1-sheet_10
+  - first:
+      213: -1786990298225503084
+    second: DURIRUSUKE-JUMP1-sheet_11
+  - first:
+      213: -1277730148269710061
+    second: DURIRUSUKE-JUMP1-sheet_12
+  - first:
+      213: -6533655791478600253
+    second: DURIRUSUKE-JUMP1-sheet_13
+  - first:
+      213: 183501350220508761
+    second: DURIRUSUKE-JUMP1-sheet_0
+  - first:
+      213: 8574097925464530481
+    second: DURIRUSUKE-JUMP1-sheet_1
+  - first:
+      213: 2053675478365126599
+    second: DURIRUSUKE-JUMP1-sheet_2
+  - first:
+      213: 8783934133230409308
+    second: DURIRUSUKE-JUMP1-sheet_3
+  - first:
+      213: 9196847211981774463
+    second: DURIRUSUKE-JUMP1-sheet_4
+  - first:
+      213: -1415542855872235347
+    second: DURIRUSUKE-JUMP1-sheet_5
+  - first:
+      213: 6396772801505948070
+    second: DURIRUSUKE-JUMP1-sheet_6
+  - first:
+      213: 1323608929944683276
+    second: DURIRUSUKE-JUMP1-sheet_7
+  - first:
+      213: -2952817620254325
+    second: DURIRUSUKE-JUMP1-sheet_8
+  - first:
+      213: 5801016338523405465
+    second: DURIRUSUKE-JUMP1-sheet_9
+  - first:
+      213: 7885436125022191380
+    second: DURIRUSUKE-JUMP1-sheet_10
+  - first:
+      213: -1597420041047337567
+    second: DURIRUSUKE-JUMP1-sheet_11
+  - first:
+      213: 6396715798796073783
+    second: DURIRUSUKE-JUMP1-sheet_12
+  - first:
+      213: -6426605216521076542
+    second: DURIRUSUKE-JUMP1-sheet_13
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ea2bb718deb8200800000000000000
+      internalID: 183501350220508761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 19
+        width: 292
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 9, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e1abcb2a05df670800000000000000
+      internalID: 8574097925464530481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 39
+        width: 296
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf32eb77fe108c10800000000000000
+      internalID: 2053675478365126599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 58
+        width: 315
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 1, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5690ad0e8dc6e970800000000000000
+      internalID: 8783934133230409308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 100
+        width: 319
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e17b3ffc3c1af70800000000000000
+      internalID: 9196847211981774463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 59
+        width: 300
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8b46fb54bfa5ce0800000000000000
+      internalID: -1415542855872235347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 59
+        width: 297
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a174aea8f6e5c850800000000000000
+      internalID: 6396772801505948070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 59
+        width: 296
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 3, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0343ea1f476e5210800000000000000
+      internalID: 1323608929944683276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 58
+        width: 298
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8188a29d6285fff0800000000000000
+      internalID: -2952817620254325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2739
+        y: 59
+        width: 301
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 1, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99cbce1ff99518050800000000000000
+      internalID: 5801016338523405465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 3041
+        y: 59
+        width: 319
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ffafa7062be6d60800000000000000
+      internalID: 7885436125022191380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3362
+        y: 100
+        width: 316
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 0, z: 2, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a59848afe2d4d9e0800000000000000
+      internalID: -1597420041047337567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 100
+        width: 321
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b7e54b023b5c850800000000000000
+      internalID: 6396715798796073783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DURIRUSUKE-JUMP1-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 4001
+        y: 19
+        width: 299
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0c69dea9c10d6a0800000000000000
+      internalID: -6426605216521076542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1759 @@
+fileFormatVersion: 2
+guid: 5cd454542149151449087dd14cf6c7cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1546908139458191602
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_0
+  - first:
+      213: -7427956554712197274
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_1
+  - first:
+      213: 3637336338648114066
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_2
+  - first:
+      213: -9128003395408989591
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_3
+  - first:
+      213: -6591668111862589984
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_4
+  - first:
+      213: -4446085664885437559
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_5
+  - first:
+      213: -6353548610736205039
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_6
+  - first:
+      213: 8090248586054005492
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_7
+  - first:
+      213: -1559787006683870315
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_8
+  - first:
+      213: -7054124185527082282
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_9
+  - first:
+      213: 7202871168858348962
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_10
+  - first:
+      213: -8952150324145567896
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_11
+  - first:
+      213: -8648565231149324623
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_12
+  - first:
+      213: 3477408052267904822
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_13
+  - first:
+      213: 5231378201954988973
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_14
+  - first:
+      213: 4307131528555818307
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_15
+  - first:
+      213: 1783633416639294732
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_16
+  - first:
+      213: 2913483423847192225
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_17
+  - first:
+      213: -2845140835775746453
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_18
+  - first:
+      213: -4807117642466281372
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_19
+  - first:
+      213: -853835293379450123
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_20
+  - first:
+      213: 2791394581662608566
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_21
+  - first:
+      213: -7169478820213059255
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_22
+  - first:
+      213: -3462444141112325810
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_23
+  - first:
+      213: 1698094774890833567
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_24
+  - first:
+      213: 1454967512988584420
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_25
+  - first:
+      213: -9120303710428055686
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_26
+  - first:
+      213: -7393078787166084979
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_27
+  - first:
+      213: 778028557334098942
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_28
+  - first:
+      213: 1268235693184389435
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_29
+  - first:
+      213: -4821467885344511431
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_30
+  - first:
+      213: 833800868335543887
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_31
+  - first:
+      213: 6319043526902835804
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_32
+  - first:
+      213: 2901934357472904763
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_33
+  - first:
+      213: 7960377879529576936
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_34
+  - first:
+      213: 3819716987640881429
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_35
+  - first:
+      213: -113926489944326489
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_36
+  - first:
+      213: 309430379830080134
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_37
+  - first:
+      213: 1636575873765300391
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_38
+  - first:
+      213: 937641235420746395
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_39
+  - first:
+      213: 1815337418271325919
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_40
+  - first:
+      213: -7149291402344813434
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_41
+  - first:
+      213: -4532569886333316868
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_42
+  - first:
+      213: -507278393172725898
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_43
+  - first:
+      213: 9153187163413049252
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_44
+  - first:
+      213: -624542828964256125
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_45
+  - first:
+      213: -6340789786455601693
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_46
+  - first:
+      213: -5275183256439966040
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_47
+  - first:
+      213: 2675282953350222286
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_48
+  - first:
+      213: 8145726421377103692
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_49
+  - first:
+      213: -2805864488821966277
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_50
+  - first:
+      213: -2410717576141122126
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_51
+  - first:
+      213: 6372083647857519555
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_52
+  - first:
+      213: 8849390226348591543
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_53
+  - first:
+      213: 7140334228082381766
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_54
+  - first:
+      213: 2062019328467499810
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_55
+  - first:
+      213: 5880935385839225429
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_56
+  - first:
+      213: -7656287567233625378
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_57
+  - first:
+      213: -5716604433553316676
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_58
+  - first:
+      213: 8934200296336421169
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_59
+  - first:
+      213: -752859997875241048
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_60
+  - first:
+      213: -1566449822228761524
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_61
+  - first:
+      213: -3144669369236846967
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_62
+  - first:
+      213: 4257144839027101418
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_63
+  - first:
+      213: 8219506928406941277
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_64
+  - first:
+      213: 3219968406124768582
+    second: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_65
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 423
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f1f673e37488ae0800000000000000
+      internalID: -1546908139458191602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 423
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66758555ed89ae890800000000000000
+      internalID: -7427956554712197274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 423
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293adb9e02a6a7230800000000000000
+      internalID: 3637336338648114066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 423
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962761c2641d25180800000000000000
+      internalID: -9128003395408989591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_4
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 398
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e51923c6c0b584a0800000000000000
+      internalID: -6591668111862589984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 398
+        width: 35
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b0c87e4a45c42c0800000000000000
+      internalID: -4446085664885437559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_6
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 398
+        width: 34
+        height: 71
+      alignment: 9
+      pivot: {x: 0.47831637, y: 0.34683916}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11354e97339a3d7a0800000000000000
+      internalID: -6353548610736205039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_7
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 398
+        width: 34
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2fa5c9936564070800000000000000
+      internalID: 8090248586054005492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_8
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 329
+        width: 39
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b86554bf58a5ae0800000000000000
+      internalID: -1559787006683870315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_9
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 355
+        width: 38
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2aa287d67ba1e90800000000000000
+      internalID: -7054124185527082282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_10
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 330
+        width: 38
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad54b66a2db5f360800000000000000
+      internalID: 7202871168858348962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_11
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 332
+        width: 38
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867c761f5b293c380800000000000000
+      internalID: -8952150324145567896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 375
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6ec8c8ebf1af780800000000000000
+      internalID: -8648565231149324623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_13
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 375
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63fe28e033c324030800000000000000
+      internalID: 3477408052267904822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_14
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 375
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3bf35f1c6999840800000000000000
+      internalID: 5231378201954988973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_15
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 375
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d64781e4106cb30800000000000000
+      internalID: 4307131528555818307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_16
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 267
+        width: 36
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d2d40742db0c810800000000000000
+      internalID: 1783633416639294732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_17
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 339
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a69669dcb5ce6820800000000000000
+      internalID: 2913483423847192225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_18
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 360
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ee0abeb770488d0800000000000000
+      internalID: -2845140835775746453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_19
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 240
+        width: 36
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468b84f29ffa94db0800000000000000
+      internalID: -4807117642466281372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_20
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 245
+        width: 36
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa2d6113519624f0800000000000000
+      internalID: -853835293379450123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_21
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 267
+        width: 36
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc23f325960db620800000000000000
+      internalID: 2791394581662608566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_22
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 332
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9419380aff4e08c90800000000000000
+      internalID: -7169478820213059255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_23
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 329
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e490e52066de2ffc0800000000000000
+      internalID: -3462444141112325810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 267
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96a05c6338d09710800000000000000
+      internalID: 1698094774890833567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_25
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 267
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e90b6b8e35113410800000000000000
+      internalID: 1454967512988584420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_26
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 267
+        width: 34
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a773248c81c2e6180800000000000000
+      internalID: -9120303710428055686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_27
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 267
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d806d766302866990800000000000000
+      internalID: -7393078787166084979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_28
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 256
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef33209c9dc1cca00800000000000000
+      internalID: 778028557334098942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_29
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 256
+        width: 35
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b311abfb4ada99110800000000000000
+      internalID: 1268235693184389435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_30
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 256
+        width: 34
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a2616e084b61db0800000000000000
+      internalID: -4821467885344511431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_31
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 256
+        width: 34
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f466d8ad871429b00800000000000000
+      internalID: 833800868335543887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_32
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 187
+        width: 39
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a6645ab90c1b750800000000000000
+      internalID: 6319043526902835804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_33
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 213
+        width: 38
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b368caa4cedb54820800000000000000
+      internalID: 2901934357472904763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_34
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 188
+        width: 38
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9dc3b6181f87e60800000000000000
+      internalID: 7960377879529576936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_35
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 190
+        width: 38
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5112cdecc5c520530800000000000000
+      internalID: 3819716987640881429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_36
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 167
+        width: 36
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae7c5406704b6ef0800000000000000
+      internalID: -113926489944326489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_37
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 239
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6827c708a415b4400800000000000000
+      internalID: 309430379830080134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_38
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 260
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a851c3161946b610800000000000000
+      internalID: 1636575873765300391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_39
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 167
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92130c5cbb230d00800000000000000
+      internalID: 937641235420746395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_40
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 167
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde798b83cf513910800000000000000
+      internalID: 1815337418271325919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_41
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 167
+        width: 34
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cab7f195d98cc90800000000000000
+      internalID: -7149291402344813434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_42
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 167
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf05875f3b31911c0800000000000000
+      internalID: -4532569886333316868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_43
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 167
+        width: 36
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f65b43df8c5f8f0800000000000000
+      internalID: -507278393172725898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_44
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 167
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af66edba37a60f70800000000000000
+      internalID: 9153187163413049252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_45
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 167
+        width: 36
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38661942b9d2557f0800000000000000
+      internalID: -624542828964256125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_46
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 190
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed83eeb84df008a0800000000000000
+      internalID: -6340789786455601693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_47
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 187
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6bec207c8cac6b0800000000000000
+      internalID: -5275183256439966040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_48
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 88
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1191cfba3802520800000000000000
+      internalID: 2675282953350222286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_49
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 87
+        width: 50
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4732b7b50f6b0170800000000000000
+      internalID: 8145726421377103692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_50
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 87
+        width: 49
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a32ef0d119f09d0800000000000000
+      internalID: -2805864488821966277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_51
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 87
+        width: 50
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5515413296b8ed0800000000000000
+      internalID: -2410717576141122126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_52
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 87
+        width: 115
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb6f9521503e6850800000000000000
+      internalID: 6372083647857519555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_53
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 87
+        width: 99
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9425856895fca70800000000000000
+      internalID: 8849390226348591543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_54
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 92
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3d96a3620971360800000000000000
+      internalID: 7140334228082381766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_55
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 87
+        width: 89
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b7b4977a3cd9c10800000000000000
+      internalID: 2062019328467499810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_56
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 87
+        width: 97
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ac8fb23974d9150800000000000000
+      internalID: 5880935385839225429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_57
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 16
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2dcc8b5076fb590800000000000000
+      internalID: -7656287567233625378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_58
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 15
+        width: 50
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb4a1a83e8a8aa0b0800000000000000
+      internalID: -5716604433553316676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_59
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 15
+        width: 49
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131725785d7acfb70800000000000000
+      internalID: 8934200296336421169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_60
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 15
+        width: 50
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af7b0d12dd4d85f0800000000000000
+      internalID: -752859997875241048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_61
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 15
+        width: 115
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44b493af2ad24ae0800000000000000
+      internalID: -1566449822228761524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_62
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 15
+        width: 99
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986069eaed3eb54d0800000000000000
+      internalID: -3144669369236846967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_63
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 20
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee099ffcaa641b30800000000000000
+      internalID: 4257144839027101418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_64
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 15
+        width: 89
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ece88a00e811270800000000000000
+      internalID: 8219506928406941277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Computer_-_Crypt_of_the_NecroDancer_-_Ogre_65
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 15
+        width: 97
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d2c0b8430afac20800000000000000
+      internalID: 3219968406124768582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
