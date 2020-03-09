@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class FatalHit : MonoBehaviour
 {
     public static Vector2 respawnPoint;
-    public GameObject panel;
+
     public CharacterController characterController;
     private float runSpeed;
     private float jumpSpeed;
@@ -27,7 +27,7 @@ public class FatalHit : MonoBehaviour
         {
             if (SwapGravity.gravitySwapped == true)
                 swapGravity.gravitySwap();
-            panel.gameObject.SetActive(true);
+          //  panel.gameObject.SetActive(true);
           //  swapGravity.gravitySwapped = false;
             transform.position = respawnPoint;
             characterController.RunSpeed = 0;
@@ -44,7 +44,7 @@ public class FatalHit : MonoBehaviour
 
     void Respawn()
     {
-        panel.gameObject.SetActive(false);
+       // panel.gameObject.SetActive(false);
         characterController.maxRunSpeed = runSpeed;
         characterController.jumpSpeed = jumpSpeed;
     }

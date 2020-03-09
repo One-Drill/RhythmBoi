@@ -14,6 +14,7 @@ public class TempoSignal : MonoBehaviour
     public AudioSource snare;
     public float audioOffset = 0.25f;
     private bool hasBeaten;
+    public MelodySeeker melody;
     
 
     void Awake()
@@ -23,8 +24,14 @@ public class TempoSignal : MonoBehaviour
         music = GetComponent<AudioSource>();
         startingTime = Time.time;
         hasBeaten = true;
+        melody = GetComponent<MelodySeeker>();
     }
 
+    //void Start()
+    //{
+        
+
+    //}
 
     public float indicateBeatPlayer()
     {
@@ -104,5 +111,15 @@ public class TempoSignal : MonoBehaviour
                 music.pitch -= 0.25f;
             }
         }
+    }
+
+    internal float getMusicTime()
+    {
+        return (music.time);
+    }
+
+    internal float getStartingTime()
+    {
+        return (startingTime);
     }
 }
