@@ -29,12 +29,10 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Update()
     {
-        print(step);
         platformLogic();
         if (step != 0)
         {
-            succesNumber = 0;
-            if (tempo.canMoveToRythm() )//&& !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel >= maxHeight && Math.Sign(step) == 1))
+            if (tempo.canMoveToRythm() && !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel == maxHeight && Math.Sign(step) == 1))
             {
                 RaycastHit2D hit = Physics2D.Raycast(player.GetComponent<CharacterController>().groundCheck.position, Vector2.down);
                 if (hit.distance < stepUpDist)
@@ -52,6 +50,20 @@ public class ForestBossPlatforms : MonoBehaviour
                     heightLevel--;
             }
         }
+        if (heightLevel >= maxHeight)
+            heightLevel = maxHeight - 1;
+        if (heightLevel < 0)
+            heightLevel = 0;
+        if (notesPlayed >= platformCombination[heightLevel].Length)
+        {
+            print(succesNumber);
+            if (succesNumber >= platformCombination[heightLevel].Length)
+                step = melody.getTimeSignature();
+            if (succesNumber < 2)
+                step = -melody.getTimeSignature();
+            succesNumber = 0;
+            notesPlayed = 0;
+        }
     }
 
     void platformLogic()
@@ -59,6 +71,7 @@ public class ForestBossPlatforms : MonoBehaviour
         if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
+            print($"notes played {notesPlayed}");
             foreach (Transform child in transform)
             {
                 if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
@@ -78,12 +91,12 @@ public class ForestBossPlatforms : MonoBehaviour
                     if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
                     {
                         platform.Success();
-                        Success();
+                        platformSuccess();
                     }
                     else
                     {
                         platform.Failure();
-                        Failure();
+                        platformFailure();
                     }
                 }
             }
@@ -93,22 +106,12 @@ public class ForestBossPlatforms : MonoBehaviour
         }
     }
 
-    private void Failure()
+    private void platformFailure()
     {
-        //succesNumber -= 1;
-        succesNumber = 0;
     }
 
-    private void Success()
+    private void platformSuccess()
     {
         succesNumber += 1;
-        if (notesPlayed >= platformCombination[heightLevel].Length)
-        {
-            if (succesNumber >= platformCombination[heightLevel].Length)
-                step = melody.getTimeSignature();
-            else
-                step = -melody.getTimeSignature();
-            notesPlayed = 0;
-        }
     }
 }
