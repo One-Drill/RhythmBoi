@@ -32,7 +32,7 @@ public class ForestBossPlatforms : MonoBehaviour
         platformLogic();
         if (step != 0)
         {
-            if (tempo.canMoveToRythm() && !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel == maxHeight && Math.Sign(step) == 1))
+            if (tempo.canMoveToRythm() && !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel >= maxHeight && Math.Sign(step) == 1))
             {
                 RaycastHit2D hit = Physics2D.Raycast(player.GetComponent<CharacterController>().groundCheck.position, Vector2.down);
                 if (hit.distance < stepUpDist)
