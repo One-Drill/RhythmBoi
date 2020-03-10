@@ -33,13 +33,13 @@ public class MythicalPlatform : MonoBehaviour
     }
     public void Success()
     {
-        //spriteRenderer.color = Color.green;
-       // colorChanged = true;
+        spriteRenderer.color = Color.green;
+        colorChanged = true;
     }
 
     public void Failure()
     {
-        //colorChanged = true;
-        //spriteRenderer.color = Color.red;
+        colorChanged = true;
+        spriteRenderer.color = Color.red;
     }
 }

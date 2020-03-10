@@ -30,6 +30,7 @@ public class ForestBossPlatforms : MonoBehaviour
     void Update()
     {
         platformLogic();
+        melodyAnnouncer();
         if (step != 0)
         {
             if (tempo.canMoveToRythm() && !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel >= maxHeight && Math.Sign(step) == 1))
@@ -56,7 +57,6 @@ public class ForestBossPlatforms : MonoBehaviour
             heightLevel = 0;
         if (notesPlayed >= platformCombination[heightLevel].Length)
         {
-            print(succesNumber);
             if (succesNumber >= platformCombination[heightLevel].Length)
                 step = melody.getTimeSignature();
             if (succesNumber < 2)
@@ -71,18 +71,6 @@ public class ForestBossPlatforms : MonoBehaviour
         if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
-            print($"notes played {notesPlayed}");
-            foreach (Transform child in transform)
-            {
-                if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
-                {
-                    if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
-                    {
-                        platform.transform.GetComponent<SpriteRenderer>().color = Color.black;
-                        platform.colorChanged = true;
-                    }
-                }
-            }
             RaycastHit2D hit = Physics2D.Raycast(player.position, Vector2.down);
             if (hit.collider != null)
             {
@@ -97,6 +85,29 @@ public class ForestBossPlatforms : MonoBehaviour
                     {
                         platform.Failure();
                         platformFailure();
+                    }
+                }
+            }
+            noteNumber++;
+            if (noteNumber >= platformCombination[heightLevel].Length)
+                noteNumber = 0;
+        }
+    }
+
+    void melodyAnnouncer()
+    {
+        if (melody.canMoveToMelody(2))
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
+                {
+                    if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
+                    {
+                        print(noteNumber);
+
+                        platform.transform.GetComponent<SpriteRenderer>().color = Color.black;
+                        platform.colorChanged = true;
                     }
                 }
             }
