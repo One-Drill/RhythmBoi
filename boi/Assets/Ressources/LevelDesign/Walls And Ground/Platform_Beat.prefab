@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1317380002556734281}
   - component: {fileID: 1317380002556734282}
   m_Layer: 0
-  m_Name: Forest_terrain_dirt_grass(fall)_128px_3
+  m_Name: Platform_Beat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   puzzleTimeInBeats: 10
   activated: {fileID: 21300006, guid: c3243c0bd9e831843b08e914337cc893, type: 3}
   deactivated: {fileID: 21300006, guid: 9dc18d9dbefddc44ebab3f88ec5da09c, type: 3}
+  isActivated: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4881878417576553145}
   - component: {fileID: 4881878417576553150}
   m_Layer: 0
-  m_Name: gem-1 (10)
+  m_Name: MonoMovement_Gem
   m_TagString: FATAL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

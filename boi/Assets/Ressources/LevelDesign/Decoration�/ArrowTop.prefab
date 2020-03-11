@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6309014736330130721}
   - component: {fileID: 4551964565150476570}
   m_Layer: 0
-  m_Name: Fleche Haut
+  m_Name: ArrowTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

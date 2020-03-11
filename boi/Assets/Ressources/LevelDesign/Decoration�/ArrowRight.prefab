@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1205033743633784568}
   - component: {fileID: 422653504010399855}
   m_Layer: 0
-  m_Name: Fleche Droite
+  m_Name: ArrowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

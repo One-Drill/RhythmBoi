@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4389506158009793684}
   - component: {fileID: 2319723420821702321}
   m_Layer: 0
-  m_Name: Forest_deco_signs_5
+  m_Name: ArrowDownLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
