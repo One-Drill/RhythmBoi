@@ -1,0 +1,1 @@
+public enum Achievements {firstkill,tacos,}

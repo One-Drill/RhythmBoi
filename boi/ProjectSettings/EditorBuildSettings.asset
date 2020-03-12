@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Leveltest/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Ressources/Scenes/Menu.unity
+    guid: 4f94485ba1ece4d9a93570c3300422e0
+  - enabled: 1
+    path: Assets/Ressources/Scenes/Level Test Abdul.unity
+    guid: 2155a7409282b154798fddb4268ededd
+  - enabled: 1
+    path: Assets/Ressources/Scenes/Abdul's lair.unity
+    guid: c3fc2c4f3253ccd4191680362c3ed520
+  - enabled: 1
+    path: Assets/Ressources/Scenes/Abdul's Masterpiece.unity
+    guid: d6f5bcddf4375ec45ab0c71c7f497c58
   m_configObjects: {}
