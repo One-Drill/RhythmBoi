@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class FatalHit : MonoBehaviour
 {
     public static Vector2 respawnPoint;
-    public GameObject panel;
+  //  public GameObject panel;
     public CharacterController characterController;
     private float runSpeed;
     private float jumpSpeed;
     private SwapGravity swapGravity;
+    private TimeCoins timeCoins;
 
     void Start()
     {
@@ -19,21 +20,24 @@ public class FatalHit : MonoBehaviour
         runSpeed = characterController.maxRunSpeed;
         jumpSpeed = characterController.jumpSpeed;
         swapGravity = GameObject.Find("GravityBox").GetComponent<SwapGravity>();
+      //  timeCoins = GameObject.Find("TimeCoin1").GetComponent<TimeCoins>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FATAL")
         {
+
             if (SwapGravity.gravitySwapped == true)
                 swapGravity.gravitySwap();
-            panel.gameObject.SetActive(true);
+      //      panel.gameObject.SetActive(true);
           //  swapGravity.gravitySwapped = false;
             transform.position = respawnPoint;
             characterController.RunSpeed = 0;
             characterController.verticalVelocity = 0;
             characterController.maxRunSpeed = 0.001f;
             characterController.jumpSpeed = 0f;
+            TimeCoins.isCharacterDead = true;
             Invoke("Respawn", 1f);
         }
         if (collision.gameObject.tag == "CHECKPOINT")
@@ -44,7 +48,8 @@ public class FatalHit : MonoBehaviour
 
     void Respawn()
     {
-        panel.gameObject.SetActive(false);
+        TimeCoins.isCharacterDead = false;
+    //    panel.gameObject.SetActive(false);
         characterController.maxRunSpeed = runSpeed;
         characterController.jumpSpeed = jumpSpeed;
     }
