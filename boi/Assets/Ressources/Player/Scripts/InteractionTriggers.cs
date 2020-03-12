@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FatalHit : MonoBehaviour
+public class InteractionTriggers : MonoBehaviour
 {
     public static Vector2 respawnPoint;
     public GameObject panel;
@@ -12,6 +12,7 @@ public class FatalHit : MonoBehaviour
     private float runSpeed;
     private float jumpSpeed;
     private SwapGravity swapGravity;
+    public int deathCount;
 
     void Start()
     {
@@ -34,6 +35,8 @@ public class FatalHit : MonoBehaviour
             characterController.verticalVelocity = 0;
             characterController.maxRunSpeed = 0.001f;
             characterController.jumpSpeed = 0f;
+            deathCount++;
+
             Invoke("Respawn", 1f);
         }
         if (collision.gameObject.tag == "CHECKPOINT")

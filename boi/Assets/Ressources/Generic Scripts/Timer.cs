@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Timer : MonoBehaviour
         {
             time += Time.deltaTime;
             // timeInt = Mathf.RoundToInt(time);
-            GetComponent<Text>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
+            GetComponent<TextMeshProUGUI>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
             //GetComponent<Text>().text = Mathf.Round(time).ToString();
         }
     }
