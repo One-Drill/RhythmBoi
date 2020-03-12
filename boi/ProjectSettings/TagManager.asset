@@ -15,6 +15,7 @@ TagManager:
   - CHECKPOINT
   - OGRE WEAKSPOT
   - BOUNCE
+  - GravSwap
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - 
   - ground
   - Player
-  - 
+  - MiniMap
   - 
   - 
   - 
