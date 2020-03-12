@@ -65,7 +65,6 @@ public class ForestBossPlatforms : MonoBehaviour
             notesPlayed = 0;
         }
     }
-
     void platformLogic()
     {
         if (melody.canMoveToMelody(offset))
@@ -93,7 +92,6 @@ public class ForestBossPlatforms : MonoBehaviour
                 noteNumber = 0;
         }
     }
-
     void melodyAnnouncer()
     {
         if (melody.canMoveToMelody(2))
@@ -104,10 +102,8 @@ public class ForestBossPlatforms : MonoBehaviour
                 {
                     if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
                     {
-                        print(noteNumber);
-
-                        platform.transform.GetComponent<SpriteRenderer>().color = Color.black;
-                        platform.colorChanged = true;
+                        print(platform.letter);
+                        platform.lightUp();
                     }
                 }
             }

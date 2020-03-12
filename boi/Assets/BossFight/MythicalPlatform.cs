@@ -11,12 +11,14 @@ public class MythicalPlatform : MonoBehaviour
     private Color originalColor;
     private float i;
     private float lightTime = 0.1f;
+    private HeavenlyLight light;
 
     void Awake()
     {
         i = 0;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        light = transform.GetComponentInChildren<HeavenlyLight>();
     }
 
     // Update is called once per frame
@@ -41,5 +43,10 @@ public class MythicalPlatform : MonoBehaviour
     {
         colorChanged = true;
         spriteRenderer.color = Color.red;
+    }
+
+    public void lightUp()
+    {
+        light.lightUp();
     }
 }
