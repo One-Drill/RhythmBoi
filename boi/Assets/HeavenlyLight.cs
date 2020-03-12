@@ -9,7 +9,7 @@ public class HeavenlyLight : MonoBehaviour
     private float fullScale;
     public float minScale;
     public float vanishDuration;
-    private static float vanishDurationStatic;
+    private static float vanishDurationStatic = 4;
     private static float minScaleStatic = 0.1f;
     private Vector3 tmpScale;
 
@@ -19,8 +19,6 @@ public class HeavenlyLight : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
         tmpScale = spriteRenderer.transform.localScale;
-        vanishDurationStatic = vanishDuration;
-        minScaleStatic = minScale;
         fullScale = tmpScale.x;
         tmpScale.x = fullScale;
         spriteRenderer.transform.localScale = tmpScale;

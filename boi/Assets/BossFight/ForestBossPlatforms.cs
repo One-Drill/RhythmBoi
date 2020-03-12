@@ -70,20 +70,26 @@ public class ForestBossPlatforms : MonoBehaviour
         if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
-            RaycastHit2D hit = Physics2D.Raycast(player.position, Vector2.down);
-            if (hit.collider != null)
+            print(platformCombination[heightLevel][noteNumber]);
+            if (platformCombination[heightLevel][noteNumber].Equals('X'))
+                platformSuccess();
+            else
             {
-                if (hit.transform.gameObject.TryGetComponent(out MythicalPlatform platform))
+                RaycastHit2D hit = Physics2D.Raycast(player.position, Vector2.down);
+                if (hit.collider != null)
                 {
-                    if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
+                    if (hit.transform.gameObject.TryGetComponent(out MythicalPlatform platform))
                     {
-                        platform.Success();
-                        platformSuccess();
-                    }
-                    else
-                    {
-                        platform.Failure();
-                        platformFailure();
+                        if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
+                        {
+                            platform.Success();
+                            platformSuccess();
+                        }
+                        else
+                        {
+                            platform.Failure();
+                            platformFailure();
+                        }
                     }
                 }
             }
@@ -102,7 +108,6 @@ public class ForestBossPlatforms : MonoBehaviour
                 {
                     if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
                     {
-                        print(platform.letter);
                         platform.lightUp();
                     }
                 }

@@ -10,6 +10,7 @@ public class FollowerOfTheMelody : MonoBehaviour
 
     void Start()
     {
+        hasSung = true;
         tempo = TempoSignal.Instance;
         melody = tempo.melody;
     }

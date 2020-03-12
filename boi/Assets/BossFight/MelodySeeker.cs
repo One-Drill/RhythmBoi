@@ -7,13 +7,14 @@ public class MelodySeeker : MonoBehaviour
 {
     private TempoSignal tempo;
     public int timeSignature = 4;
-    public int harmonicMultiplier;
-    public string melodyMarker;
+    public int harmonicMultiplier = 2;
+    public string melodyMarker = "XXXXXXXXXXXXXXXXOXOXOOXOXXXXXXXX";
     private bool hasSung;
     private int noteNumber;
 
     void Start()
     {
+        noteNumber = -1;
         tempo = GetComponent<TempoSignal>();
     }
 
