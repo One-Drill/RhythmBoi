@@ -18,6 +18,7 @@ public class Spikes : MonoBehaviour
         tempo = GetComponent<FollowerOfTheRhythm>();
         tempsReel = 60f / tempo.getBpm();
         frame = 0;
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,5 +49,11 @@ public class Spikes : MonoBehaviour
                 //transform.Translate(0, -1f * transform.parent.localScale.y * direction, 0);               
             }
         }
+    }
+
+    public void spikesUp()
+    {
+        print("1");
+        gameObject.SetActive(true);
     }
 }

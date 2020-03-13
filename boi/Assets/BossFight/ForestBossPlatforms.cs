@@ -6,6 +6,7 @@ using UnityEngine;
 public class ForestBossPlatforms : MonoBehaviour
 {
     public string[] platformCombination;
+    public string[] spikeCombination;
     private int noteNumber;
     private FollowerOfTheMelody melody;
     private FollowerOfTheRhythm tempo;
@@ -18,6 +19,16 @@ public class ForestBossPlatforms : MonoBehaviour
     public int maxHeight;
     private int notesPlayed;
 
+
+    // spikes
+    int spikePattern;
+    int i;
+    private bool onBeat;
+    private int beats;
+    private int bars;
+   
+
+
     void Start()
     {
         noteNumber = 0;
@@ -29,23 +40,44 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Update()
     {
+        onBeat = tempo.canMoveToRythm();
+        if (onBeat)
+        {
+            beats++;
+        }
         platformLogic();
         melodyAnnouncer();
-        if (step != 0)
+        stepController();
+        if (bars >= 8)
+            spikeDance();
+        if (beats >= 4)
         {
-            if (tempo.canMoveToRythm() && !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel >= maxHeight && Math.Sign(step) == 1))
+            beats = 0;
+            spikePattern++;
+            if (spikePattern >= spikeCombination.Length)
+                spikePattern = 0;
+            bars++;
+        }
+
+    }
+
+    void stepController()
+    {
+                if (step != 0)
+        {
+            if (onBeat && !(heightLevel == 0 && Math.Sign(step) == -1) && !(heightLevel >= maxHeight && Math.Sign(step) == 1))
             {
                 RaycastHit2D hit = Physics2D.Raycast(player.GetComponent<CharacterController>().groundCheck.position, Vector2.down);
-                if (hit.distance < stepUpDist)
+                if (hit.distance<stepUpDist)
                 {
                     player.Translate(new Vector3(0, (stepUpDist - hit.distance) * Math.Sign(step)));
                 }
                 foreach (Transform child in transform)
                 {
-                    child.transform.Translate(new Vector3(0, stepUpDist * Math.Sign(step)));
+                    child.transform.Translate(new Vector3(0, stepUpDist* Math.Sign(step)));
                 }
                 step -= Math.Sign(step);
-                if (step == 1 && heightLevel < maxHeight)
+                if (step == 1 && heightLevel<maxHeight)
                     heightLevel++;
                 if (step == -1 && heightLevel > 0)
                     heightLevel--;
@@ -53,24 +85,25 @@ public class ForestBossPlatforms : MonoBehaviour
         }
         if (heightLevel >= maxHeight)
             heightLevel = maxHeight - 1;
-        if (heightLevel < 0)
+        if (heightLevel< 0)
             heightLevel = 0;
         if (notesPlayed >= platformCombination[heightLevel].Length)
         {
             if (succesNumber >= platformCombination[heightLevel].Length)
                 step = melody.getTimeSignature();
-            if (succesNumber < 2)
+            if (succesNumber< 2)
                 step = -melody.getTimeSignature();
             succesNumber = 0;
             notesPlayed = 0;
         }
     }
+
     void platformLogic()
     {
         if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
-            print(platformCombination[heightLevel][noteNumber]);
+            //print(platformCombination[heightLevel][noteNumber]);
             if (platformCombination[heightLevel][noteNumber].Equals('X'))
                 platformSuccess();
             else
@@ -98,6 +131,7 @@ public class ForestBossPlatforms : MonoBehaviour
                 noteNumber = 0;
         }
     }
+
     void melodyAnnouncer()
     {
         if (melody.canMoveToMelody(2))
@@ -116,6 +150,27 @@ public class ForestBossPlatforms : MonoBehaviour
             if (noteNumber >= platformCombination[heightLevel].Length)
                 noteNumber = 0;
         }
+    }
+
+    void spikeDance()
+    {
+
+        i = 0;
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
+            {
+                if (spikeCombination[spikePattern][i].Equals(platform.letter))
+                {
+                    platform.spikes.gameObject.SetActive(true);
+                }
+                else
+                    platform.spikes.gameObject.SetActive(false);
+                i++;
+
+            }
+        }
+
     }
 
     private void platformFailure()

@@ -12,10 +12,12 @@ public class MythicalPlatform : MonoBehaviour
     private float i;
     private float lightTime = 0.1f;
     private HeavenlyLight heavenlyLight;
+    public Spikes spikes;
 
     void Awake()
     {
         i = 0;
+        spikes = transform.GetComponentInChildren<Spikes>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         heavenlyLight = transform.GetComponentInChildren<HeavenlyLight>();
