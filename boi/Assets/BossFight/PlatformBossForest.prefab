@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letter: 66
   colorChanged: 0
+  spikes: {fileID: 0}
 --- !u!1001 &8620564291900049839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +229,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8143963511550753847}
     m_Modifications:
+    - target: {fileID: 1544411514428917044, guid: d28bcebefdd0e403c8fc1ede74c09de8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8223699147629509217, guid: d28bcebefdd0e403c8fc1ede74c09de8,
         type: 3}
       propertyPath: m_SortingOrder
@@ -241,12 +247,12 @@ PrefabInstance:
     - target: {fileID: 8223699147629509229, guid: d28bcebefdd0e403c8fc1ede74c09de8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: 8223699147629509229, guid: d28bcebefdd0e403c8fc1ede74c09de8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: -6.44
       objectReference: {fileID: 0}
     - target: {fileID: 8223699147629509229, guid: d28bcebefdd0e403c8fc1ede74c09de8,
         type: 3}
@@ -292,6 +298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223699147629509229, guid: d28bcebefdd0e403c8fc1ede74c09de8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.3012085
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d28bcebefdd0e403c8fc1ede74c09de8, type: 3}
