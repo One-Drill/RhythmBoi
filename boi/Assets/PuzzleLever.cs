@@ -10,11 +10,12 @@ public class PuzzleLever : MonoBehaviour
     private FollowerOfTheRhythm tempo;
     private bool isMoving = false;
     private int timesMoved = 0;
+    private float doorStatement = 1f;
 
     public Sprite spriteCrankUp;
     public Sprite spriteCrankDown;
     public Transform doorOne;
-    public GameObject doorTwo;
+    public Transform doorTwo;
 
     void Start()
     {
@@ -27,10 +28,14 @@ public class PuzzleLever : MonoBehaviour
     {
         if (tempo.canMoveToRythm() && isMoving == true)
         {
-            doorOne.Translate(new Vector3(0, 1.66f));
+            
+            doorOne.Translate(new Vector3(0, 1.60f * doorStatement));
+            doorTwo.Translate(new Vector3(0, -1.60f * doorStatement));
             timesMoved++;
             if (timesMoved == 3)
             {
+                doorStatement *= -1;
+                timesMoved = 0;
                 isMoving = false;
             }
         }

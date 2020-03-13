@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &587812071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057385617200536292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911f0e895db9551489b1192669bd7682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteCrankUp: {fileID: 21300000, guid: 441a2d89600064d4d9ced045b19d0ae6, type: 3}
+  spriteCrankDown: {fileID: 21300000, guid: d3240c946631a4966b1bcab3db999126, type: 3}
+  doorOne: {fileID: 0}
+  doorTwo: {fileID: 0}
+--- !u!114 &587812074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057385617200536292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a663d29581b43144bcb5257a33bf2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &883511115686953838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3750484832013326728, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326728, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326728, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.18643212
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -78.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 150.01562
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326729, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326730, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: m_Name
+      value: crank-up (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750484832013326731, guid: afbf964072326db44aa7500cec46befd,
+        type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3750484832013326731, guid: afbf964072326db44aa7500cec46befd, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: afbf964072326db44aa7500cec46befd, type: 3}
+--- !u!1 &4057385617200536292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3750484832013326730, guid: afbf964072326db44aa7500cec46befd,
+    type: 3}
+  m_PrefabInstance: {fileID: 883511115686953838}
+  m_PrefabAsset: {fileID: 0}
