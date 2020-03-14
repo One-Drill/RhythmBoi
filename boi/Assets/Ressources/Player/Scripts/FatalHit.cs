@@ -18,13 +18,14 @@ public class FatalHit : MonoBehaviour
         respawnPoint = transform.position;
         runSpeed = characterController.maxRunSpeed;
         jumpSpeed = characterController.jumpSpeed;
-        swapGravity = GameObject.Find("GravityBox").GetComponent<SwapGravity>();
+//        swapGravity = GameObject.Find("GravityBox").GetComponent<SwapGravity>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FATAL")
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             if (SwapGravity.gravitySwapped == true)
                 swapGravity.gravitySwap();
           //  panel.gameObject.SetActive(true);
@@ -35,6 +36,7 @@ public class FatalHit : MonoBehaviour
             characterController.maxRunSpeed = 0.001f;
             characterController.jumpSpeed = 0f;
             Invoke("Respawn", 1f);
+            
         }
         if (collision.gameObject.tag == "CHECKPOINT")
         {

@@ -53,9 +53,11 @@ public class ForestBossPlatforms : MonoBehaviour
         if (beats >= 4)
         {
             beats = 0;
+            //spikes
             spikePattern++;
             if (spikePattern >= spikeCombination.Length)
                 spikePattern = 0;
+
             bars++;
         }
 
@@ -167,7 +169,6 @@ public class ForestBossPlatforms : MonoBehaviour
                 else
                     platform.spikes.gameObject.SetActive(false);
                 i++;
-
             }
         }
 
