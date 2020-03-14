@@ -43,7 +43,7 @@ public class CharacterController : MonoBehaviour
     private bool hasWallJumped = false;
     public float coyoteTime;
     private float coyoteTimeCounter = 0;
-    public float BounceSpeed;
+    public float bounceSpeed;
     public int swapped = -1;
     public float pushBlockSpeed;
     private float baseRunDeceleration;
@@ -224,12 +224,11 @@ public class CharacterController : MonoBehaviour
         RaycastHit2D hitFloor = Physics2D.Raycast(groundCheck.position, swapped == 1 ? Vector2.up : Vector2.down);
         if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity) + 0.1f)
         {
-            grounded = false;
-            //if (grounded)
-            //    coyoteTimeCounter += Time.deltaTime;
+            if (grounded)
+                coyoteTimeCounter += Time.deltaTime;
         }
-        //if (coyoteTimeCounter >= coyoteTime)
-          //  grounded = false;
+        if (coyoteTimeCounter >= coyoteTime)
+            grounded = false;
         jumpDeceleration = normalDeceleration;
         if (!grounded)
         {
@@ -238,7 +237,7 @@ public class CharacterController : MonoBehaviour
             //else
                 jump(hitFloor);
         }
-        m_Transform.Translate(new Vector3(0, verticalVelocity));
+        m_Transform.Translate(new Vector3(0, verticalVelocity * Time.deltaTime));
     }
 
     public float slide(float horizontalMovement, bool down)
@@ -315,24 +314,20 @@ public class CharacterController : MonoBehaviour
         {
             if (airTime >= shortHopDuration && spaceReleased)
                 jumpDeceleration = fastStop;
-            verticalVelocity -= jumpDeceleration * Time.deltaTime;
+            verticalVelocity -= jumpDeceleration;
             RaycastHit2D hitCeil = Physics2D.Raycast(headCheck.position, swapped == 1? Vector2.down : Vector2.up);
-            if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity) + 0.1f)
+            if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.1f)
             {
                 m_Transform.Translate(new Vector3(0, hitCeil.distance));
                 verticalVelocity = 0;
-                //if (hitCeil.transform.gameObject.TryGetComponent<SwapGravity>(out SwapGravity gravSwapper))
-                 //   gravSwapper.gravityShouldSwap = true;
-             // else if (hitCeil.transform.gameObject.TryGetComponent<TimedGravSwap>(out TimedGravSwap timedGravSwapper))
-              //      timedGravSwapper.gravityShouldSwap = true;
             }
         }
         if (verticalVelocity <= 0)
         {
-            verticalVelocity -= fallAcceleration * Time.deltaTime;
+            verticalVelocity -= fallAcceleration;
             if (verticalVelocity < -maxFallSpeed)
-                verticalVelocity = maxFallSpeed;
-            if (hitFloor.collider != null && hitFloor.distance < Mathf.Abs(verticalVelocity) + 0.1f)
+                verticalVelocity = -maxFallSpeed;
+            if (hitFloor.collider != null && hitFloor.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.1f)
             {
                 m_Transform.Translate(new Vector3(0, -hitFloor.distance));
                 airTime = 0;
@@ -340,12 +335,10 @@ public class CharacterController : MonoBehaviour
                 coyoteTimeCounter = 0;
                 grounded = true;
                 hasWallJumped = false;
-                //WENDRUL START
                 if (hitFloor.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
                 {
                     platform.isSteppedOn();
                 }
-                //WENDRUL OUT
                 // ABDOUL IN
                 //   if (Physics2D.Raycast(groundCheck.tag, Vector2.down) == "FallingPlatform")
                 //       falplat = true;
@@ -359,7 +352,7 @@ public class CharacterController : MonoBehaviour
         if (hitInfo.tag == "BOUNCE")
         {
             grounded = false;
-            verticalVelocity = BounceSpeed;
+            verticalVelocity = bounceSpeed;
         }
         if (hitInfo.tag == "GravSwap")
             hitInfo.gameObject.GetComponent<SwapGravity>().gravityShouldSwap = true;
