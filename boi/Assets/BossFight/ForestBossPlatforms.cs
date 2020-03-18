@@ -104,7 +104,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void platformLogic()
     {
-        /*if (melody.canMoveToMelody(offset))
+        if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
             //print(platformCombination[heightLevel][noteNumber]);
@@ -133,7 +133,7 @@ public class ForestBossPlatforms : MonoBehaviour
             noteNumber++;
             if (noteNumber >= platformCombination[heightLevel].Length)
                 noteNumber = 0;
-        }*/
+        }
     }
 
     void melodyAnnouncer()
