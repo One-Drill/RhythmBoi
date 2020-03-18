@@ -8,7 +8,7 @@ public class MelodySeeker : MonoBehaviour
     private TempoSignal tempo;
     public int timeSignature = 4;
     public int harmonicMultiplier = 2;
-    public string melodyMarker = "XXXXXXXXXXXXXXXXOXOXOOXOXXXXXXXX";
+    private string melodyMarker = "XXXXXXXXXXXXXXXXOXOXOOXOXXXXXXXX";
     private bool hasSung;
     private int noteNumber;
 
@@ -47,7 +47,7 @@ public class MelodySeeker : MonoBehaviour
     
     public bool indicateKeyNote(int offset)
     {
-        if (inSync() && melodyMarker[(noteNumber + offset * harmonicMultiplier * timeSignature) % melodyMarker.Length] != 'X')
+        if (inSync() && melodyMarker[(noteNumber + offset * harmonicMultiplier * timeSignature - 1) % melodyMarker.Length] != 'X')
         {
             return (true);
         }

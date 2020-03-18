@@ -36,6 +36,8 @@ public class ForestBossPlatforms : MonoBehaviour
         melody = GetComponent<FollowerOfTheMelody>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         heightLevel = 0;
+        beats = 0;
+        bars = 0;
     }
 
     void Update()
@@ -102,7 +104,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void platformLogic()
     {
-        if (melody.canMoveToMelody(offset))
+        /*if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
             //print(platformCombination[heightLevel][noteNumber]);
@@ -131,19 +133,22 @@ public class ForestBossPlatforms : MonoBehaviour
             noteNumber++;
             if (noteNumber >= platformCombination[heightLevel].Length)
                 noteNumber = 0;
-        }
+        }*/
     }
 
     void melodyAnnouncer()
     {
         if (melody.canMoveToMelody(2))
         {
+            print(noteNumber);
             foreach (Transform child in transform)
             {
                 if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
                 {
+                    //print($"checking {platformCombination[heightLevel][noteNumber]} and {platform.letter}");
                     if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
                     {
+                        //print(platform.letter);
                         platform.lightUp();
                     }
                 }

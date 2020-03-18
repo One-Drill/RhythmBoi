@@ -464,7 +464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSignature: 4
   harmonicMultiplier: 2
-  melodyMarker: XXXXXXXXXXXXXXXXOXOXOOXOXXXXXXXX
 --- !u!1001 &1009273843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -945,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformCombination:
-  - GXHXF
+  - ABCDE
   - FXHXG
   - FXHXG
   - FXHXG
