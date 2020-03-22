@@ -32,7 +32,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Start()
     {
-        currentPhase = 2;
+        currentPhase = 1;
         noteNumber = 0;
         notesPlayed = 0;
         melody = GetComponent<FollowerOfTheMelody>();
@@ -40,20 +40,13 @@ public class ForestBossPlatforms : MonoBehaviour
         heightLevel = 0;
         beats = 0;
         bars = 0;
+        Phase1();
     }
 
     void Update()
     {
-        
-        if (bars == startPhaseBar[1] / 4)
-            phaseEnded = true;
-        if (bars == startPhaseBar[2] / 4)
-            phaseEnded = true;
         onBeat = tempo.canMoveToRythm();
-        if (onBeat)
-        {
-            beats++;
-        }
+
         platformLogic();
         melodyAnnouncer();
         stepController();
@@ -63,19 +56,31 @@ public class ForestBossPlatforms : MonoBehaviour
         }
         if (beats >= 4)
         {
+
             beats = 0;
+            //spikes
             spikePattern++;
             if (spikePattern >= spikeCombination.Length)
                 spikePattern = 0;
+
             bars++;
+            
+
         }
-        if (!phaseEnded && heightLevel == startPhaseBar[2] / 4)
+        if (bars == startPhaseBar[2])
         {
-            phaseEnded = true;
-            currentPhase = 2;
+
+            // currentPhase++;
+            ResetPhase();
         }
-        if (phaseEnded)
+        if (onBeat)
         {
+            beats++;
+        }
+    }
+
+    private void ResetPhase()
+    {
             if (currentPhase == 1)
             {
                 Phase1();
@@ -84,22 +89,12 @@ public class ForestBossPlatforms : MonoBehaviour
             {
                 Phase2();
             }
-            phaseEnded = false;
-        }
-        else
-        {
-            if (heightLevel == startPhaseBar[2] / 4)
-            {
-                currentPhase = 2;
-            }
-        }
     }
 
     private void Phase1()
     {
         bars = startPhaseBar[0];
         //beats = 0;
-        //melody.setMusicTime((bars * melody.getTimeSignature()) * (1 / tempo.getBpm()));
         melody.setMusicTime(0);
     }
 
@@ -151,7 +146,6 @@ public class ForestBossPlatforms : MonoBehaviour
         if (melody.canMoveToMelody(offset))
         {
             notesPlayed++;
-            //print(platformCombination[heightLevel][noteNumber]);
             if (platformCombination[heightLevel][noteNumber].Equals('X'))
                 platformSuccess();
             else
@@ -184,15 +178,12 @@ public class ForestBossPlatforms : MonoBehaviour
     {
         if (melody.canMoveToMelody(2))
         {
-            print(noteNumber);
             foreach (Transform child in transform)
             {
                 if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
                 {
-                    //print($"checking {platformCombination[heightLevel][noteNumber]} and {platform.letter}");
                     if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
                     {
-                        //print(platform.letter);
                         platform.lightUp();
                     }
                 }
