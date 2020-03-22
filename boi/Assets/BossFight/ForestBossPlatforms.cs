@@ -32,7 +32,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Start()
     {
-        currentPhase = 1;
+        currentPhase = 2;
         noteNumber = 0;
         notesPlayed = 0;
         melody = GetComponent<FollowerOfTheMelody>();
@@ -44,6 +44,31 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Update()
     {
+        
+        if (bars == startPhaseBar[1] / 4)
+            phaseEnded = true;
+        if (bars == startPhaseBar[2] / 4)
+            phaseEnded = true;
+        onBeat = tempo.canMoveToRythm();
+        if (onBeat)
+        {
+            beats++;
+        }
+        platformLogic();
+        melodyAnnouncer();
+        stepController();
+        if (currentPhase == 2)
+        {
+            spikeDance();
+        }
+        if (beats >= 4)
+        {
+            beats = 0;
+            spikePattern++;
+            if (spikePattern >= spikeCombination.Length)
+                spikePattern = 0;
+            bars++;
+        }
         if (!phaseEnded && heightLevel == startPhaseBar[2] / 4)
         {
             phaseEnded = true;
@@ -66,47 +91,22 @@ public class ForestBossPlatforms : MonoBehaviour
             if (heightLevel == startPhaseBar[2] / 4)
             {
                 currentPhase = 2;
-                phaseEnded = true;
             }
         }
-        if (bars >= startPhaseBar[2] / 4)
-            phaseEnded = true;
-        onBeat = tempo.canMoveToRythm();
-        if (onBeat)
-        {
-            beats++;
-        }
-        platformLogic();
-        melodyAnnouncer();
-        stepController();
-        if (currentPhase == 2)
-        {
-            spikeDance();
-        }
-        if (beats >= 4)
-        {
-            beats = 0;
-            //spikes
-            spikePattern++;
-            if (spikePattern >= spikeCombination.Length)
-                spikePattern = 0;
-
-            bars++;
-        }
-
     }
 
     private void Phase1()
     {
-        bars = startPhaseBar[1];
+        bars = startPhaseBar[0];
         //beats = 0;
-        melody.setMusicTime((bars * melody.getTimeSignature() + beats) * (1 / tempo.getBpm()));
+        //melody.setMusicTime((bars * melody.getTimeSignature()) * (1 / tempo.getBpm()));
+        melody.setMusicTime(0);
     }
 
     private void Phase2()
     {
-        bars = startPhaseBar[2];
-        melody.setMusicTime((bars * melody.getTimeSignature() + beats) * (1 / tempo.getBpm()));
+        bars = startPhaseBar[1];
+        melody.setMusicTime((bars * melody.getTimeSignature()) * (1 / tempo.getBpm()) + Time.deltaTime);
     }
 
     void stepController()
