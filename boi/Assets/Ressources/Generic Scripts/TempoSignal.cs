@@ -10,7 +10,7 @@ public class TempoSignal : MonoBehaviour
     private float startingTime;
     public float bpm;
     public float tolerance = 0.2f;
-    private AudioSource music;
+    private AudioSource music { get; set; }
     public AudioSource snare;
     public float audioOffset = 0.25f;
     private bool hasBeaten;
@@ -121,5 +121,10 @@ public class TempoSignal : MonoBehaviour
     internal float getStartingTime()
     {
         return (startingTime);
+    }
+
+    public void setMusicTime(float time)
+    {
+        music.time = time;
     }
 }

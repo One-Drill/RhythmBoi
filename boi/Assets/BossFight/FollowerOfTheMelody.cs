@@ -43,4 +43,9 @@ public class FollowerOfTheMelody : MonoBehaviour
     {
         return (melody.indicateKeyNote(0));
     }
+
+    public void setMusicTime(float time)
+    {
+        tempo.setMusicTime(time);
+    }
 }
