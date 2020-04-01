@@ -6,12 +6,13 @@ public class FollowerOfTheRhythm : MonoBehaviour
 {
     private static TempoSignal globalTempo = TempoSignal.Instance;
     private bool hasBeaten;
-    private float bpm = 120;
+    private float bpm;
 
     void Start()
     {
         globalTempo = TempoSignal.Instance;
         hasBeaten = true;
+        bpm = globalTempo.bpm;
     }
 
     void Update()
