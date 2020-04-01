@@ -29,8 +29,10 @@ public class Lever : MonoBehaviour
             spriteRenderer.sprite = spriteCrankDown;
             if (destroyDoor == true)
             {
-                Destroy(doorOne);
-                Destroy(doorTwo);
+                if (doorOne)
+                    Destroy(doorOne);
+                if (doorTwo)
+                    Destroy(doorTwo);
             }
         }
         

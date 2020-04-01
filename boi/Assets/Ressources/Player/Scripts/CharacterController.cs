@@ -53,8 +53,9 @@ public class CharacterController : MonoBehaviour
     //ABDUL START
     void Start()
     {
+        print(tempo.getBpm());
         baseRunDeceleration = runDeceleration;
-        runSpeed = runSpeed / 120f * tempo.getBpm();
+        maxRunSpeed = maxRunSpeed / 120f * tempo.getBpm();
         jumpDeceleration = jumpDeceleration / 120f * tempo.getBpm();
         fallAcceleration = fallAcceleration / 120f * tempo.getBpm();
         maxFallSpeed = maxFallSpeed / 120f * tempo.getBpm();

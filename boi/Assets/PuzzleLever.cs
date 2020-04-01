@@ -10,31 +10,44 @@ public class PuzzleLever : MonoBehaviour
     private FollowerOfTheRhythm tempo;
     private bool isMoving = false;
     private int timesMoved = 0;
-    private float doorStatement = 1f;
 
     public Sprite spriteCrankUp;
     public Sprite spriteCrankDown;
-    public Transform doorOne;
-    public Transform doorTwo;
+    public GameObject doorOne;
+    public GameObject doorTwo;
+    public GameObject doorThree;
+
+    private float doorScriptOne;
+    private float doorScriptTwo;
+    private float doorScriptThree;
 
     void Start()
     {
    //     m_Transform = GetComponent<Transform>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        doorScriptOne = doorOne.GetComponent<DoorPuzzleLever>().doorStatement;
+        doorScriptTwo = doorTwo.GetComponent<DoorPuzzleLever>().doorStatement;
+        doorScriptThree = doorThree.GetComponent<DoorPuzzleLever>().doorStatement;
     }
 
     void Update()
     {
+        
         if (tempo.canMoveToRythm() && isMoving == true)
         {
-            
-            doorOne.Translate(new Vector3(0, 1.60f * doorStatement));
-            doorTwo.Translate(new Vector3(0, -1.60f * doorStatement));
+            if (doorOne)
+                doorOne.transform.Translate(new Vector3(0, 2.5f * doorScriptOne));
+            if (doorTwo)
+                doorTwo.transform.Translate(new Vector3(0, 2.5f * doorScriptTwo));
+            if(doorThree)
+                doorThree.transform.Translate(new Vector3(0, 2.5f * doorScriptThree));
             timesMoved++;
-            if (timesMoved == 3)
+            if (timesMoved == 2)
             {
-                doorStatement *= -1;
+                doorScriptOne *= -1;
+                doorScriptTwo *= -1;
+                doorScriptThree *= -1;
                 timesMoved = 0;
                 isMoving = false;
             }

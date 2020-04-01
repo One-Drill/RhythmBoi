@@ -95,7 +95,6 @@ public class TempoSignal : MonoBehaviour
         {
            
             if (bpm == 120f)
-
                 bpm = 120f;
 
             else
