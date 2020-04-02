@@ -222,12 +222,12 @@ public class CharacterController : MonoBehaviour
 
 
         RaycastHit2D hitFloor = Physics2D.Raycast(groundCheck.position, swapped == 1 ? Vector2.up : Vector2.down);
-        if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity) + 0.1f)
+        if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity))
         {
             if (grounded)
                 coyoteTimeCounter += Time.deltaTime;
         }
-        if (coyoteTimeCounter >= coyoteTime)
+        if (coyoteTimeCounter > coyoteTime)
             grounded = false;
         jumpDeceleration = normalDeceleration;
         if (!grounded)
@@ -235,12 +235,12 @@ public class CharacterController : MonoBehaviour
             //if (canWallJump)
              //   wallGrabJump(hitFloor);
             //else
-                jump(hitFloor);
+            jump();
         }
         m_Transform.Translate(new Vector3(0, verticalVelocity * Time.deltaTime));
     }
 
-    public float slide(float horizontalMovement, bool down)
+    public float Slide(float horizontalMovement, bool down)
     {
         if (down && beatDuration <= 0 && grounded)
         {
@@ -307,14 +307,14 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    void jump(RaycastHit2D hitFloor)
+    void jump()
     {
         airTime += Time.deltaTime;
         if (verticalVelocity > 0)
         {
             if (airTime >= shortHopDuration && spaceReleased)
                 jumpDeceleration = fastStop;
-            verticalVelocity -= jumpDeceleration;
+            verticalVelocity -= jumpDeceleration * Time.deltaTime;
             RaycastHit2D hitCeil = Physics2D.Raycast(headCheck.position, swapped == 1? Vector2.down : Vector2.up);
             if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.1f)
             {
@@ -324,10 +324,26 @@ public class CharacterController : MonoBehaviour
         }
         if (verticalVelocity <= 0)
         {
-            verticalVelocity -= fallAcceleration;
+            verticalVelocity -= fallAcceleration * Time.deltaTime;
             if (verticalVelocity < -maxFallSpeed)
                 verticalVelocity = -maxFallSpeed;
-            if (hitFloor.collider != null && hitFloor.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.1f)
+            float height = Mathf.Abs(m_Transform.position.y - groundCheck.position.y);
+            RaycastHit2D hitFloor = Physics2D.Raycast(transform.position, Vector2.down);
+            if (hitFloor.collider != null && hitFloor.distance < height + 0.1f)
+            {
+                print("delokesea");
+                m_Transform.Translate(Vector2.up * (height - hitFloor.distance));
+                grounded = true;
+                verticalVelocity = 0;
+                coyoteTimeCounter = 0;
+                airTime = 0;
+                if (hitFloor.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
+                {
+                    platform.isSteppedOn();
+                }
+            }
+            
+            /*if (hitFloor.collider != null && hitFloor.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.1f)
             {
                 m_Transform.Translate(new Vector3(0, -hitFloor.distance));
                 airTime = 0;
@@ -343,7 +359,7 @@ public class CharacterController : MonoBehaviour
                 //   if (Physics2D.Raycast(groundCheck.tag, Vector2.down) == "FallingPlatform")
                 //       falplat = true;
                 //ABDOUL OUT
-            }
+            }*/
         }
     }
 

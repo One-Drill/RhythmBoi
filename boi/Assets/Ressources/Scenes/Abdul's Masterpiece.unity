@@ -14690,7 +14690,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: a9a97be157ab5b24f8403213a8076327, type: 3}
+      objectReference: {fileID: 8300000, guid: a2051c885e4dcee46b9c8deddf630b39, type: 3}
     - target: {fileID: 142829629331324884, guid: aebb328f3cfce744ab644cab2c43556e,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -14766,10 +14766,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rythm
       objectReference: {fileID: 0}
+    - target: {fileID: 3479829309945647020, guid: aebb328f3cfce744ab644cab2c43556e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3892799850427457067, guid: aebb328f3cfce744ab644cab2c43556e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6887416624144793019, guid: aebb328f3cfce744ab644cab2c43556e,
         type: 3}
@@ -54791,12 +54796,12 @@ PrefabInstance:
     - target: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 104.6
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -77.3
+      value: 68.2
       objectReference: {fileID: 0}
     - target: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
@@ -54896,7 +54901,37 @@ PrefabInstance:
     - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
       propertyPath: jumpSpeed
-      value: 0.45
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: jumpDeceleration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: maxFallSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: fastStop
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: fallAcceleration
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: coyoteTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2758391791921759308, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}
