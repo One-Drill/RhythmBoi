@@ -957,7 +957,7 @@ MonoBehaviour:
   offset: 0
   stepUpDist: 1
   maxHeight: 4
-  startPhaseBar: 000000000400000004000000
+  startPhaseBar: 000000000400000008000000
 --- !u!1 &1562634268
 GameObject:
   m_ObjectHideFlags: 0

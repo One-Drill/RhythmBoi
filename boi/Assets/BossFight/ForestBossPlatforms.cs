@@ -15,7 +15,7 @@ public class ForestBossPlatforms : MonoBehaviour
     private int succesNumber;
     private int step;
     public float stepUpDist;
-    private int heightLevel;
+    private static int heightLevel;
     public int maxHeight;
     private int notesPlayed;
 
@@ -23,9 +23,9 @@ public class ForestBossPlatforms : MonoBehaviour
     // spikes
     int spikePattern;
     int i;
-    private bool onBeat;
-    private int beats;
-    private int bars;
+    private static bool onBeat;
+    private static int beats;
+    private static int bars;
     private int currentPhase;
     private bool phaseEnded;
     [SerializeField] private int[] startPhaseBar;
@@ -40,68 +40,80 @@ public class ForestBossPlatforms : MonoBehaviour
         heightLevel = 0;
         beats = 0;
         bars = 0;
-        Phase1();
     }
 
     void Update()
     {
-        onBeat = tempo.canMoveToRythm();
+        
+        // tant que la musique est lancée
+            if (bars < startPhaseBar[1])
+                Phase1();
+            if (bars >= startPhaseBar[1] && bars < startPhaseBar[2])
+                Phase2();
+            if (bars >= startPhaseBar[2] && bars < startPhaseBar[3])
+            //Phase3();
 
+
+            //if (currentPhase == 2)
+            //{
+            //    spikeDance();
+            //}
+
+            // permet de quantifier les battements et les mesures de la musique
+            //if (beats >= 4)
+            // {
+
+            //        beats = 0;
+            //    //spikes
+            //         if (bars >= startPhaseBar[1])
+            //         {
+            //            spikePattern++;
+            //            if (spikePattern >= spikeCombination.Length)
+            //            spikePattern = 0;
+            //         }
+            //      //  print(bars);
+            //        bars++;
+            //    }
+    if (beats == 4)
+            {
+                print(bars);
+                
+                bars++;
+                beats = 0;
+            }
+            if (tempo.canMoveToRythm())
+            {
+                beats++;
+            }
+    }
+    private void Phase1()
+    {
         platformLogic();
         melodyAnnouncer();
         stepController();
-        if (currentPhase == 2)
+
+        //print(bars);
+        //reset la phase if no succes on melodyannoncer
+        if (bars + 1 == startPhaseBar[1] && heightLevel < 1)
         {
-            spikeDance();
+            melody.setMusicTime(0);
+            bars = startPhaseBar[0];
         }
-        if (beats >= 4)
-        {
-
-            beats = 0;
-            //spikes
-            spikePattern++;
-            if (spikePattern >= spikeCombination.Length)
-                spikePattern = 0;
-
-            bars++;
-            
-
-        }
-        if (bars == startPhaseBar[2])
-        {
-
-            // currentPhase++;
-            ResetPhase();
-        }
-        if (onBeat)
-        {
-            beats++;
-        }
-    }
-
-    private void ResetPhase()
-    {
-            if (currentPhase == 1)
-            {
-                Phase1();
-            }
-            if (currentPhase == 2)
-            {
-                Phase2();
-            }
-    }
-
-    private void Phase1()
-    {
-        bars = startPhaseBar[0];
-        //beats = 0;
-        melody.setMusicTime(0);
     }
 
     private void Phase2()
     {
-        bars = startPhaseBar[1];
-        melody.setMusicTime((bars * melody.getTimeSignature()) * (1 / tempo.getBpm()) + Time.deltaTime);
+        platformLogic();
+        melodyAnnouncer();
+        stepController();
+        
+
+        //reset phase
+        if (bars + 1 == startPhaseBar[3] && heightLevel < 2)
+        {
+            melody.setMusicTime((bars * melody.getTimeSignature()) * (1 / tempo.getBpm()) + Time.deltaTime);
+            bars = startPhaseBar[1];
+        }
     }
 
     void stepController()
