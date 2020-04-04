@@ -957,7 +957,10 @@ MonoBehaviour:
   offset: 0
   stepUpDist: 1
   maxHeight: 4
-  startPhaseBar: 000000000400000008000000
+  onBeat: 0
+  beats: 0
+  bars: 0
+  startPhaseBar: 000000000800000010000000
 --- !u!1 &1562634268
 GameObject:
   m_ObjectHideFlags: 0

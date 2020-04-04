@@ -23,9 +23,9 @@ public class ForestBossPlatforms : MonoBehaviour
     // spikes
     int spikePattern;
     int i;
-    private static bool onBeat;
-    private static int beats;
-    private static int bars;
+    public bool onBeat;
+    public int beats;
+    public  int bars;
     private int currentPhase;
     private bool phaseEnded;
     [SerializeField] private int[] startPhaseBar;
@@ -38,67 +38,77 @@ public class ForestBossPlatforms : MonoBehaviour
         melody = GetComponent<FollowerOfTheMelody>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         heightLevel = 0;
-        beats = 0;
         bars = 0;
+        melody.setMusicTime(0);
     }
 
     void Update()
     {
-        
+        onBeat = tempo.canMoveToRythm();
+
+        if (onBeat)
+        {
+            beats++;
+        }
+        if (beats == 4)
+        {
+            beats = 0;
+            bars++;
+            print(bars);
+            //spikes
+            if (bars >= 8)
+            {
+                spikePattern++;
+                if (spikePattern >= spikeCombination.Length)
+                    spikePattern = 0;
+            }
+        }
         // tant que la musique est lancée
-            if (bars < startPhaseBar[1])
+        if (bars <= startPhaseBar[1])
                 Phase1();
-            if (bars >= startPhaseBar[1] && bars < startPhaseBar[2])
+        if (bars >= startPhaseBar[1])
                 Phase2();
-            if (bars >= startPhaseBar[2] && bars < startPhaseBar[3])
-            //Phase3();
 
 
-            //if (currentPhase == 2)
-            //{
-            //    spikeDance();
-            //}
+        // if (bars >= startPhaseBar[2] && bars < startPhaseBar[3])
+        //Phase3();
 
-            // permet de quantifier les battements et les mesures de la musique
-            //if (beats >= 4)
-            // {
 
-            //        beats = 0;
-            //    //spikes
-            //         if (bars >= startPhaseBar[1])
-            //         {
-            //            spikePattern++;
-            //            if (spikePattern >= spikeCombination.Length)
-            //            spikePattern = 0;
-            //         }
-            //      //  print(bars);
-            //        bars++;
-            //    }
-    if (beats == 4)
-            {
-                print(bars);
-                
-                bars++;
-                beats = 0;
-            }
-            if (tempo.canMoveToRythm())
-            {
-                beats++;
-            }
+        //if (currentPhase == 2)
+        //{
+        //    spikeDance();
+        //}
+
+        // permet de quantifier les battements et les mesures de la musique
+        //if (beats >= 4)
+        // {
+
+        //        beats = 0;
+        //    //spikes
+
+        //      //  print(bars);
+        //        bars++;
+        //    }
+
+
+
     }
     private void Phase1()
     {
+
         platformLogic();
         melodyAnnouncer();
         stepController();
 
         //print(bars);
         //reset la phase if no succes on melodyannoncer
-        if (bars + 1 == startPhaseBar[1] && heightLevel < 1)
+        if (beats == 3 && bars + 1 >= startPhaseBar[1] && heightLevel < 1)
         {
             melody.setMusicTime(0);
             bars = startPhaseBar[0];
+
         }
+
     }
 
     private void Phase2()
@@ -106,12 +116,14 @@ public class ForestBossPlatforms : MonoBehaviour
         platformLogic();
         melodyAnnouncer();
         stepController();
+        spikeDance();
         
 
         //reset phase
-        if (bars + 1 == startPhaseBar[3] && heightLevel < 2)
+        if (beats == 3 && bars + 1 == startPhaseBar[3] && heightLevel < 2)
         {
-            melody.setMusicTime((bars * melody.getTimeSignature()) * (1 / tempo.getBpm()) + Time.deltaTime);
+            //melody.setMusicTime(16)
+            melody.setMusicTime(16);
             bars = startPhaseBar[1];
         }
     }
