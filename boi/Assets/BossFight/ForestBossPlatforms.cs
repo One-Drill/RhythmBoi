@@ -44,8 +44,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Update()
     {
-
-        //gestion battement et mesures
+        //gestion battements et mesures
         onBeat = tempo.canMoveToRythm();
         if (onBeat)
         {
@@ -55,7 +54,7 @@ public class ForestBossPlatforms : MonoBehaviour
         {
             beats = 0;
             print(bars);
-            // gestion de la position des piques (emplacement temporaire0
+            // gestion de la position des piques sur la plateforme (emplacement temporaire)
             if (bars >= startPhaseBar[1])
             {
                 spikePattern++;
@@ -64,7 +63,7 @@ public class ForestBossPlatforms : MonoBehaviour
             }
             bars++;
         }
-        // lancement des phases en fonction de l'avancement de la musique / il faudrait les inclure dans un while music et mettre une fonction pour quitter proprement 
+        // lancement des phases en fonction de l'avancement de la musique / dans l'ideale il faudrait les inclure dans un while music et mettre une fonction pour quitter proprement 
         if (bars <= startPhaseBar[1])
                 Phase1();
         if (bars >= startPhaseBar[1])
@@ -73,7 +72,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     private void Phase1()
     {
-        //reset de la phase
+        //reset de la phase en cas de non reussite
         if (beats == 3 && bars + 1 >= startPhaseBar[1] && heightLevel < 1)
         {
             melody.setMusicTime(0);
@@ -88,7 +87,7 @@ public class ForestBossPlatforms : MonoBehaviour
 
     private void Phase2()
     {
-        //reset de la  phase
+        //reset de la phase en case de non reussite
         if (beats == 3 && bars + 1 == startPhaseBar[3] && heightLevel < 2)
         {
             //melody.setMusicTime(16)
