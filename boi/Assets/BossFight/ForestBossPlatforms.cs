@@ -44,8 +44,9 @@ public class ForestBossPlatforms : MonoBehaviour
 
     void Update()
     {
-        onBeat = tempo.canMoveToRythm();
 
+        //gestion battement et mesures
+        onBeat = tempo.canMoveToRythm();
         if (onBeat)
         {
             beats++;
@@ -54,7 +55,7 @@ public class ForestBossPlatforms : MonoBehaviour
         {
             beats = 0;
             print(bars);
-            //spikes
+            // gestion de la position des piques (emplacement temporaire0
             if (bars >= startPhaseBar[1])
             {
                 spikePattern++;
@@ -63,7 +64,7 @@ public class ForestBossPlatforms : MonoBehaviour
             }
             bars++;
         }
-        // il faudrait mettre un while music et mettre une fonction pour quitter proprement
+        // lancement des phases en fonction de l'avancement de la musique / il faudrait les inclure dans un while music et mettre une fonction pour quitter proprement 
         if (bars <= startPhaseBar[1])
                 Phase1();
         if (bars >= startPhaseBar[1])
@@ -72,13 +73,14 @@ public class ForestBossPlatforms : MonoBehaviour
 
     private void Phase1()
     {
-        //reset la phase if no succes on melodyannoncer
+        //reset de la phase
         if (beats == 3 && bars + 1 >= startPhaseBar[1] && heightLevel < 1)
         {
             melody.setMusicTime(0);
             bars = startPhaseBar[0];
 
         }
+        // cast des elements inclus dans la phase
         platformLogic();
         melodyAnnouncer();
         stepController();
@@ -86,16 +88,18 @@ public class ForestBossPlatforms : MonoBehaviour
 
     private void Phase2()
     {
-        //reset phase
+        //reset de la  phase
         if (beats == 3 && bars + 1 == startPhaseBar[3] && heightLevel < 2)
         {
             //melody.setMusicTime(16)
             melody.setMusicTime(16);
             bars = startPhaseBar[1];
         }
+        // cast des elements inclus dans la phase
         platformLogic();
         melodyAnnouncer();
         stepController();
+        // cast des piques
         spikeDance();
     }
 
