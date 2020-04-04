@@ -944,9 +944,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformCombination:
-  - ABCDE
-  - FXHXG
-  - FXHXG
+  - ABCXX
+  - ABCXX
+  - ABCXX
   - FXHXG
   spikeCombination:
   - AXXXEXXX

@@ -40,6 +40,7 @@ public class ForestBossPlatforms : MonoBehaviour
         heightLevel = 0;
         bars = 0;
         melody.setMusicTime(0);
+//spikePattern = -1;
     }
 
     void Update()
@@ -53,15 +54,15 @@ public class ForestBossPlatforms : MonoBehaviour
         if (beats == 4)
         {
             beats = 0;
-            bars++;
             print(bars);
             //spikes
-            if (bars >= 8)
+            if (bars >= startPhaseBar[1])
             {
                 spikePattern++;
                 if (spikePattern >= spikeCombination.Length)
                     spikePattern = 0;
             }
+            bars++;
         }
         // tant que la musique est lancée
         if (bars <= startPhaseBar[1])
@@ -93,26 +94,33 @@ public class ForestBossPlatforms : MonoBehaviour
 
 
     }
+
     private void Phase1()
     {
-
-        platformLogic();
-        melodyAnnouncer();
-        stepController();
-
-        //print(bars);
-        //reset la phase if no succes on melodyannoncer
         if (beats == 3 && bars + 1 >= startPhaseBar[1] && heightLevel < 1)
         {
             melody.setMusicTime(0);
             bars = startPhaseBar[0];
 
         }
+        platformLogic();
+        melodyAnnouncer();
+        stepController();
+
+        //print(bars);
+        //reset la phase if no succes on melodyannoncer
+
 
     }
 
     private void Phase2()
     {
+        if (beats == 3 && bars + 1 == startPhaseBar[3] && heightLevel < 2)
+        {
+            //melody.setMusicTime(16)
+            melody.setMusicTime(16);
+            bars = startPhaseBar[1];
+        }
         platformLogic();
         melodyAnnouncer();
         stepController();
@@ -120,12 +128,7 @@ public class ForestBossPlatforms : MonoBehaviour
         
 
         //reset phase
-        if (beats == 3 && bars + 1 == startPhaseBar[3] && heightLevel < 2)
-        {
-            //melody.setMusicTime(16)
-            melody.setMusicTime(16);
-            bars = startPhaseBar[1];
-        }
+
     }
 
     void stepController()
