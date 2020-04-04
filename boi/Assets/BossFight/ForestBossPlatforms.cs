@@ -40,7 +40,6 @@ public class ForestBossPlatforms : MonoBehaviour
         heightLevel = 0;
         bars = 0;
         melody.setMusicTime(0);
-//spikePattern = -1;
     }
 
     void Update()
@@ -64,39 +63,16 @@ public class ForestBossPlatforms : MonoBehaviour
             }
             bars++;
         }
-        // tant que la musique est lancée
+        // il faudrait mettre un while music et mettre une fonction pour quitter proprement
         if (bars <= startPhaseBar[1])
                 Phase1();
         if (bars >= startPhaseBar[1])
                 Phase2();
-
-
-        // if (bars >= startPhaseBar[2] && bars < startPhaseBar[3])
-        //Phase3();
-
-
-        //if (currentPhase == 2)
-        //{
-        //    spikeDance();
-        //}
-
-        // permet de quantifier les battements et les mesures de la musique
-        //if (beats >= 4)
-        // {
-
-        //        beats = 0;
-        //    //spikes
-
-        //      //  print(bars);
-        //        bars++;
-        //    }
-
-
-
     }
 
     private void Phase1()
     {
+        //reset la phase if no succes on melodyannoncer
         if (beats == 3 && bars + 1 >= startPhaseBar[1] && heightLevel < 1)
         {
             melody.setMusicTime(0);
@@ -106,15 +82,11 @@ public class ForestBossPlatforms : MonoBehaviour
         platformLogic();
         melodyAnnouncer();
         stepController();
-
-        //print(bars);
-        //reset la phase if no succes on melodyannoncer
-
-
     }
 
     private void Phase2()
     {
+        //reset phase
         if (beats == 3 && bars + 1 == startPhaseBar[3] && heightLevel < 2)
         {
             //melody.setMusicTime(16)
@@ -125,10 +97,6 @@ public class ForestBossPlatforms : MonoBehaviour
         melodyAnnouncer();
         stepController();
         spikeDance();
-        
-
-        //reset phase
-
     }
 
     void stepController()
