@@ -308,7 +308,10 @@ public class CharacterController : MonoBehaviour
         }
 
     }
-
+    public void SetRunSpeed(float speed)
+    {
+        runSpeed = speed;
+    }
     void jump()
     {
         airTime += Time.deltaTime;
@@ -320,7 +323,7 @@ public class CharacterController : MonoBehaviour
             RaycastHit2D hitCeil = Physics2D.Raycast(headCheck.position, swapped == 1? Vector2.down : Vector2.up);
             if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.1f)
             {
-                m_Transform.Translate(new Vector3(0, hitCeil.distance));
+                //m_Transform.Translate(new Vector3(0, hitCeil.distance));
                 verticalVelocity = 0;
             }
         }

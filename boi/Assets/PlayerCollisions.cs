@@ -13,12 +13,14 @@ public class PlayerCollisions : MonoBehaviour
     private Transform knee;
     private Transform head;
 
-
     private Transform collisions;
     private Transform m_Transform;
+    private CharacterController controller;
     void Start()
     {
         m_Transform = GetComponent<Transform>();
+        controller = GetComponent<CharacterController>();
+
         collisions = m_Transform.Find("Collisions");
         groundCheck = collisions.Find("groundCheck");
         ceilCheck = collisions.Find("ceilCheck");
@@ -36,15 +38,11 @@ public class PlayerCollisions : MonoBehaviour
 
     public void RectifyPosition()
     {
-        Vector3 correct = new Vector3();
-        correct.x = Horizontal();
-        if (correct.x != 0)
-        print(correct.x);
-        correct.y = Vertical();
-        m_Transform.Translate(correct);
+        Horizontal();
+        Vertical();
     }
 
-    private float Vertical()
+    private void Vertical()
     {
         float heightUp = Mathf.Abs(ceilCheck.position.y - m_Transform.position.y);
         float heightDown = Mathf.Abs(m_Transform.position.y - groundCheck.position.y);
@@ -53,26 +51,29 @@ public class PlayerCollisions : MonoBehaviour
         {
             verticalCorrection -= RayCollisionDetection(Vector2.up, heightUp, m_Transform);
         }
-        return verticalCorrection;
+        m_Transform.Translate(new Vector3(0, verticalCorrection));
     }
 
-    private float Horizontal()
+    private void Horizontal()
     {
-        float rightWidth = Mathf.Abs(transform.position.y - rightCheck.position.y);
-        float leftWidth = Mathf.Abs(transform.position.y - leftCheck.position.y);
+        float rightWidth = Mathf.Abs(head.position.x - rightCheck.position.x);
+        float leftWidth = Mathf.Abs(head.position.x - leftCheck.position.x);
 
-        float horizontalCorrection = Mathf.Max(RayCollisionDetection(Vector2.right, rightWidth, head), RayCollisionDetection(Vector2.right, rightWidth, knee));
-        if (horizontalCorrection == 0)
+        float horizontalCorrection = - Mathf.Max(RayCollisionDetection(Vector2.right, rightWidth, head), RayCollisionDetection(Vector2.right, rightWidth, knee));
+            //print("alol"); 
+            horizontalCorrection += Mathf.Max(RayCollisionDetection(Vector2.left, leftWidth, head), RayCollisionDetection(Vector2.left, leftWidth, knee));
+        if (horizontalCorrection != 0)
         {
-            horizontalCorrection -= Mathf.Max(RayCollisionDetection(Vector2.left, leftWidth, head), RayCollisionDetection(Vector2.left, leftWidth, knee));
+            controller.SetRunSpeed(0);
         }
-        return horizontalCorrection;
+        m_Transform.Translate(new Vector3(horizontalCorrection, 0));
+
     }
 
     private float RayCollisionDetection(Vector2 direction, float distance, Transform startingPoint)
     {
         RaycastHit2D hitPoint = Physics2D.Raycast(startingPoint.position, direction);
-        if (true || hitPoint.collider != null && hitPoint.distance < distance + 0.1f)
+        if (hitPoint.collider != null && hitPoint.distance < distance + 0.01f)
         {
             return distance - hitPoint.distance;
         }
