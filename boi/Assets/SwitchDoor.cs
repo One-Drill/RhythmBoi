@@ -27,7 +27,7 @@ public class SwitchDoor : MonoBehaviour
         m_Transform = GetComponent<Transform>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         player = GameObject.Find("PLAYER");
-        GameObject spritesprite = player.transform.GetChild(2).gameObject;
+        GameObject spritesprite = player.transform.GetChild(1).gameObject;
         playerSprite = spritesprite.GetComponent<SpriteRenderer>();
         runSpeed = characterController.runSpeed;
         jumpSpeed = characterController.jumpSpeed;
