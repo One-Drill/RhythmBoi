@@ -15,6 +15,7 @@ public class PlayerCollisions : MonoBehaviour
 
     private Transform collisions;
     private Transform m_Transform;
+    private Transform center;
     private CharacterController controller;
     void Start()
     {
@@ -29,6 +30,8 @@ public class PlayerCollisions : MonoBehaviour
         leftCheck = collisions.Find("leftCheck");
         head = collisions.Find("head");
         knee = collisions.Find("knee");
+        center = collisions.Find("center");
+        center.position = new Vector3((rightCheck.position.x + leftCheck.position.x) / 2, (head.position.y + knee.position.y) / 2);
     }
 
     void Update()
@@ -44,20 +47,20 @@ public class PlayerCollisions : MonoBehaviour
 
     private void Vertical()
     {
-        float heightUp = Mathf.Abs(ceilCheck.position.y - m_Transform.position.y);
-        float heightDown = Mathf.Abs(m_Transform.position.y - groundCheck.position.y);
-        float verticalCorrection = RayCollisionDetection(Vector2.down, heightDown, m_Transform);
+        float heightUp = Mathf.Abs(ceilCheck.position.y - center.position.y);
+        float heightDown = Mathf.Abs(center.position.y - groundCheck.position.y);
+        float verticalCorrection = RayCollisionDetection(Vector2.down, heightDown, center);
         if (verticalCorrection == 0)
         {
-            verticalCorrection -= RayCollisionDetection(Vector2.up, heightUp, m_Transform);
+            verticalCorrection -= RayCollisionDetection(Vector2.up, heightUp, center);
         }
         m_Transform.Translate(new Vector3(0, verticalCorrection));
     }
 
     private void Horizontal()
     {
-        float rightWidth = Mathf.Abs(head.position.x - rightCheck.position.x);
-        float leftWidth = Mathf.Abs(head.position.x - leftCheck.position.x);
+        float rightWidth = Mathf.Abs(center.position.x - rightCheck.position.x);
+        float leftWidth = Mathf.Abs(center.position.x - leftCheck.position.x);
 
         float horizontalCorrection = - Mathf.Max(RayCollisionDetection(Vector2.right, rightWidth, head), RayCollisionDetection(Vector2.right, rightWidth, knee));
             //print("alol"); 
