@@ -43,6 +43,7 @@ public class CharacterController : MonoBehaviour
     private Transform leftCheck;
     private float joystick;
     [SerializeField] private float minDropDistance;
+    private bool coyoteHop;
 
     void Start()
     {
@@ -140,9 +141,10 @@ public class CharacterController : MonoBehaviour
     {
         animator.SetBool("Onair", Grounded);
         
-        if (Grounded && hop)
+        if (hop && (Grounded || coyoteHop))
         {
             Grounded = false;
+            coyoteHop = false;
             spaceReleased = false;
             verticalVelocity = jumpSpeed;
         }
@@ -151,22 +153,30 @@ public class CharacterController : MonoBehaviour
 
 
         RaycastHit2D hitFloor = Physics2D.Raycast(groundCheck.position, Swapped == 1 ? Vector2.up : Vector2.down);
-        if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity))
+        if (hitFloor.collider == null || hitFloor.distance > minDropDistance)
         {
             if (Grounded)
             {
+                Grounded = false;               
                 if (hitFloor.distance < minDropDistance)
                 {
                     transform.Translate(new Vector3(0, -hitFloor.distance));
                 }
                 else
-                { 
-                    coyoteTimeCounter += Time.deltaTime;
+                {
+                    coyoteHop = true;
                 }
             }
         }
-        if (coyoteTimeCounter > coyoteTime)
-            Grounded = false;
+        if (coyoteHop)
+        {
+            coyoteTimeCounter += Time.deltaTime;
+            if (coyoteTimeCounter > coyoteTime)
+            {
+                coyoteHop = false;
+                coyoteTimeCounter = 0;
+            }
+        }
         jumpDeceleration = normalDeceleration;
         if (!Grounded)
         {
@@ -211,6 +221,7 @@ public class CharacterController : MonoBehaviour
     public void OnLanding(RaycastHit2D hitGround)
     {
         coyoteTimeCounter = 0;
+        coyoteHop = false;
         airTime = 0;
         if (hitGround.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
         {
