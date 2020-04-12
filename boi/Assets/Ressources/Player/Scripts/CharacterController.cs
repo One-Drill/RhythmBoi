@@ -22,21 +22,16 @@ public class CharacterController : MonoBehaviour
     public float maxRunSpeed;
     public float maxFallSpeed;
     public float fallAcceleration;
-    public bool grounded; // Accessed from playerMovement, should find way to make private.
-    private bool m_FacingRight = true;
+    public bool Grounded { get; private set; } // Accessed from playerMovement, should find way to make private.
     public float RunSpeed { get; set; }
     public float airSpeedMultiplier = 1.5f;
     private Transform collisions;
     public Transform sprite;
-    private float slideSpeed = -1;
-    private float beatDuration = 0;
     private bool spaceReleased = false;
     private float airTime = 0;
     public float shortHopDuration;
     public float fastStop;
     private float normalDeceleration;
-    private bool canWallJump = false;
-    private bool hasWallJumped = false;
     public float coyoteTime;
     private float coyoteTimeCounter = 0;
     public float bounceSpeed;
@@ -46,7 +41,7 @@ public class CharacterController : MonoBehaviour
 
     private Transform rightCheck;
     private Transform leftCheck;
-
+    private float joystick;
 
     void Start()
     {
@@ -68,7 +63,7 @@ public class CharacterController : MonoBehaviour
     void Awake()
     {
         normalDeceleration = jumpDeceleration;
-        grounded = false;
+        Grounded = false;
         verticalVelocity = 0;
         tempo = GetComponent<FollowerOfTheRhythm>();
         m_Transform = GetComponent<Transform>();
@@ -87,45 +82,57 @@ public class CharacterController : MonoBehaviour
     public void Move(float horizontalMovement, bool hop, bool up, bool down, bool spaceWasReleased, bool wallJump)
     {
         animator.SetFloat("Speed", horizontalMovement);
-        //canWallJump = wallJumpCheck();
         MoveHorizontal(horizontalMovement * -Swapped);
-        //horizontalMovement = slide(runSpeed * horizontalMovement, down);
         verticalMovement(hop, up, spaceWasReleased, wallJump);
         runDeceleration = baseRunDeceleration;
         playerCollisions.RectifyPosition();
     }
 
+    private bool AimForSpeed(float speed, float acceleration)
+    {
+        if (RunSpeed > speed)
+        {
+            RunSpeed -= acceleration * Time.deltaTime;
+            if (RunSpeed <= speed)
+            {
+                RunSpeed = speed;
+                return true;
+            }
+        }
+        else
+        {
+            RunSpeed += acceleration * Time.deltaTime;
+            if (RunSpeed > speed)
+            {
+                RunSpeed = speed;
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void MoveHorizontal(float horizontalMovement)
     {
-        /*if (horizontalMovement > 0 && !m_FacingRight)
-        {
-            flip();
-        }
-        else if (horizontalMovement < 0 && m_FacingRight)
-        {
-            flip();
-        }*/
-        // MIGUEL IN : Setting up animator's param "Speed" with horizontalMovement to enable run animation if it is greater than 0!
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
-        // MIGUEL OUT
-        if (horizontalMovement > 0)
-            RunSpeed += runAcceleration * Time.deltaTime;
-        else if (horizontalMovement < 0)
-            RunSpeed -= runAcceleration * Time.deltaTime;
-        if (horizontalMovement == 0 && Mathf.Abs(RunSpeed) <= 1)
-            RunSpeed = 0;
-        if (horizontalMovement == 0 && Mathf.Abs(RunSpeed) > 1)
-            RunSpeed += (RunSpeed > 0 ? -runDeceleration : runDeceleration) * Time.deltaTime;
-        RunSpeed = Mathf.Clamp(RunSpeed, -maxRunSpeed, maxRunSpeed);
+
+        if (horizontalMovement == 0)
+        {
+            AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runDeceleration);
+        }
+        else
+        {
+            AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runAcceleration);
+        }
+
         if (RunSpeed > 0)
         {
-            RunSpeed *= horizontalMovement > 0.001 ? horizontalMovement : 1;
-            horizontalMovement = CheckHorizontalRightCollision(RunSpeed, !grounded ? airSpeedMultiplier : 1);
+            //RunSpeed *= horizontalMovement > 0.001 ? horizontalMovement : 1;
+            horizontalMovement = CheckHorizontalRightCollision(RunSpeed, !Grounded ? airSpeedMultiplier : 1);
         }
         else if (RunSpeed < 0)
         {
-            RunSpeed *= horizontalMovement < -0.001 ? -horizontalMovement : 1;
-            horizontalMovement = CheckHorizontalLeftCollision(RunSpeed, !grounded ? airSpeedMultiplier : 1);
+            //RunSpeed *= horizontalMovement < -0.001 ? -horizontalMovement : 1;
+            horizontalMovement = CheckHorizontalLeftCollision(RunSpeed, !Grounded ? airSpeedMultiplier : 1);
         }
         m_Transform.Translate(new Vector3(horizontalMovement, 0));
     }
@@ -160,11 +167,11 @@ public class CharacterController : MonoBehaviour
 
     public void verticalMovement(bool hop, bool up, bool spaceWasReleased, bool wallJump)
     {
-        animator.SetBool("Onair", grounded);
+        animator.SetBool("Onair", Grounded);
         
-        if (grounded && hop)
+        if (Grounded && hop)
         {
-            grounded = false;
+            Grounded = false;
             spaceReleased = false;
             verticalVelocity = jumpSpeed;
         }
@@ -175,13 +182,13 @@ public class CharacterController : MonoBehaviour
         RaycastHit2D hitFloor = Physics2D.Raycast(groundCheck.position, Swapped == 1 ? Vector2.up : Vector2.down);
         if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity))
         {
-            if (grounded)
+            if (Grounded)
                 coyoteTimeCounter += Time.deltaTime;
         }
         if (coyoteTimeCounter > coyoteTime)
-            grounded = false;
+            Grounded = false;
         jumpDeceleration = normalDeceleration;
-        if (!grounded)
+        if (!Grounded)
         {
             Jump();
         }
@@ -215,7 +222,7 @@ public class CharacterController : MonoBehaviour
             {
                 m_Transform.Translate(Vector2.down * distanceToSnap);
                 verticalVelocity = 0;
-                grounded = true;
+                Grounded = true;
                 OnLanding(hitGround);
             }
         }
@@ -235,7 +242,7 @@ public class CharacterController : MonoBehaviour
     {
         if (hitInfo.tag == "BOUNCE")
         {
-            grounded = false;
+            Grounded = false;
             verticalVelocity = bounceSpeed;
         }
         if (hitInfo.tag == "GravSwap")
