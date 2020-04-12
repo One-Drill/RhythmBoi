@@ -49,23 +49,28 @@ public class PlayerCollisions : MonoBehaviour
 
     private void Vertical()
     {
+        Vector2 direction = controller.Swapped == 1 ? Vector2.up : Vector2.down;
+
         float heightUp = Mathf.Abs(ceilCheck.position.y - center.position.y);
         float heightDown = Mathf.Abs(center.position.y - groundCheck.position.y);
-        float verticalCorrection = RayCollisionDetection(Vector2.down, heightDown, center);
+        float verticalCorrection = RayCollisionDetection(direction, heightDown, center);
+        
         if (verticalCorrection == 0)
         {
-            verticalCorrection -= RayCollisionDetection(Vector2.up, heightUp, center);
+            verticalCorrection -= RayCollisionDetection(-direction, heightUp, center);
         }
         m_Transform.Translate(new Vector3(0, verticalCorrection));
     }
 
     private void Horizontal()
     {
+        Vector2 direction = controller.Swapped == 1 ? Vector2.right : Vector2.left;
+
         float rightWidth = Mathf.Abs(center.position.x - rightCheck.position.x);
         float leftWidth = Mathf.Abs(center.position.x - leftCheck.position.x);
 
-        float horizontalCorrection = - Mathf.Max(RayCollisionDetection(Vector2.right, rightWidth, head), RayCollisionDetection(Vector2.right, rightWidth, knee));
-        horizontalCorrection += Mathf.Max(RayCollisionDetection(Vector2.left, leftWidth, head), RayCollisionDetection(Vector2.left, leftWidth, knee));
+        float horizontalCorrection = - Mathf.Max(RayCollisionDetection(-direction, rightWidth, head), RayCollisionDetection(-direction, rightWidth, knee));
+        horizontalCorrection += Mathf.Max(RayCollisionDetection(direction, leftWidth, head), RayCollisionDetection(direction, leftWidth, knee));
         if (horizontalCorrection != 0)
         {
             controller.RunSpeed = 0;
@@ -114,11 +119,12 @@ public class PlayerCollisions : MonoBehaviour
 
     public bool ShouldSnapHorizontaly(float runSpeed, out float distanceToSnap)
     {
+        Vector2 direction = controller.Swapped == 1 ? Vector2.right : Vector2.left;
 
         if (runSpeed > 0)
         {
-            RaycastHit2D upperRay = Physics2D.Raycast(new Vector3(rightCheck.position.x, head.position.y), Vector2.right, runSpeed);
-            RaycastHit2D lowerRay = Physics2D.Raycast(new Vector3(rightCheck.position.x, knee.position.y), Vector2.right, runSpeed);
+            RaycastHit2D upperRay = Physics2D.Raycast(new Vector3(rightCheck.position.x, head.position.y), direction, runSpeed);
+            RaycastHit2D lowerRay = Physics2D.Raycast(new Vector3(rightCheck.position.x, knee.position.y), direction, runSpeed);
             
             distanceToSnap = Mathf.Max(upperRay.distance, lowerRay.distance);
             
@@ -127,8 +133,8 @@ public class PlayerCollisions : MonoBehaviour
         else
         {
             runSpeed = -runSpeed;
-            RaycastHit2D upperRay = Physics2D.Raycast(new Vector3(leftCheck.position.x, head.position.y), Vector2.left, runSpeed);
-            RaycastHit2D lowerRay = Physics2D.Raycast(new Vector3(leftCheck.position.x, knee.position.y), Vector2.left, runSpeed);
+            RaycastHit2D upperRay = Physics2D.Raycast(new Vector3(leftCheck.position.x, head.position.y), -direction, runSpeed);
+            RaycastHit2D lowerRay = Physics2D.Raycast(new Vector3(leftCheck.position.x, knee.position.y), -direction, runSpeed);
             
             distanceToSnap = - Mathf.Max(upperRay.distance, lowerRay.distance);
          

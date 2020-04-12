@@ -42,6 +42,7 @@ public class CharacterController : MonoBehaviour
     private Transform rightCheck;
     private Transform leftCheck;
     private float joystick;
+    [SerializeField] private float minDropDistance;
 
     void Start()
     {
@@ -153,7 +154,16 @@ public class CharacterController : MonoBehaviour
         if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity))
         {
             if (Grounded)
-                coyoteTimeCounter += Time.deltaTime;
+            {
+                if (hitFloor.distance < minDropDistance)
+                {
+                    transform.Translate(new Vector3(0, -hitFloor.distance));
+                }
+                else
+                { 
+                    coyoteTimeCounter += Time.deltaTime;
+                }
+            }
         }
         if (coyoteTimeCounter > coyoteTime)
             Grounded = false;
