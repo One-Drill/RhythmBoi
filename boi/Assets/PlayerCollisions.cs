@@ -17,6 +17,8 @@ public class PlayerCollisions : MonoBehaviour
     private Transform m_Transform;
     private Transform center;
     private CharacterController controller;
+
+    //todo Add swapped on the collisions
     void Start()
     {
         m_Transform = GetComponent<Transform>();
@@ -67,7 +69,7 @@ public class PlayerCollisions : MonoBehaviour
             horizontalCorrection += Mathf.Max(RayCollisionDetection(Vector2.left, leftWidth, head), RayCollisionDetection(Vector2.left, leftWidth, knee));
         if (horizontalCorrection != 0)
         {
-            controller.SetRunSpeed(0);
+            controller.RunSpeed = 0;
         }
         m_Transform.Translate(new Vector3(horizontalCorrection, 0));
 
@@ -81,5 +83,33 @@ public class PlayerCollisions : MonoBehaviour
             return distance - hitPoint.distance;
         }
         return 0;
+    }
+
+    public bool ShouldSnapToCeiling(float verticalVelocity, out float distanceToSnap)
+    {
+        Vector3 centeredCeilCheck = new Vector3(center.position.x, ceilCheck.position.y);
+
+        RaycastHit2D hitCeil = Physics2D.Raycast(centeredCeilCheck, controller.Swapped == 1 ? Vector2.down : Vector2.up);
+        if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.001f)
+        {
+            distanceToSnap = hitCeil.distance;
+            return true;
+        }
+        distanceToSnap = 0;
+        return false;
+    }
+
+    public bool ShouldSnapToGround(float verticalVelocity, out float distanceToSnap, out RaycastHit2D hitGround)
+    {
+        Vector3 centeredGroundCheck = new Vector3(center.position.x, groundCheck.position.y);
+
+        hitGround = Physics2D.Raycast(centeredGroundCheck, controller.Swapped == 1 ? Vector2.up : Vector2.down);
+        if (hitGround.collider != null && hitGround.distance < Mathf.Abs(verticalVelocity * Time.deltaTime) + 0.001f)
+        {
+            distanceToSnap = hitGround.distance;
+            return true;
+        }
+        distanceToSnap = 0;
+        return false;
     }
 }
