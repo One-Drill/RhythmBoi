@@ -65,8 +65,7 @@ public class PlayerCollisions : MonoBehaviour
         float leftWidth = Mathf.Abs(center.position.x - leftCheck.position.x);
 
         float horizontalCorrection = - Mathf.Max(RayCollisionDetection(Vector2.right, rightWidth, head), RayCollisionDetection(Vector2.right, rightWidth, knee));
-            //print("alol"); 
-            horizontalCorrection += Mathf.Max(RayCollisionDetection(Vector2.left, leftWidth, head), RayCollisionDetection(Vector2.left, leftWidth, knee));
+        horizontalCorrection += Mathf.Max(RayCollisionDetection(Vector2.left, leftWidth, head), RayCollisionDetection(Vector2.left, leftWidth, knee));
         if (horizontalCorrection != 0)
         {
             controller.RunSpeed = 0;
@@ -111,5 +110,29 @@ public class PlayerCollisions : MonoBehaviour
         }
         distanceToSnap = 0;
         return false;
+    }
+
+    public bool ShouldSnapHorizontaly(float runSpeed, out float distanceToSnap)
+    {
+
+        if (runSpeed > 0)
+        {
+            RaycastHit2D upperRay = Physics2D.Raycast(new Vector3(rightCheck.position.x, head.position.y), Vector2.right, runSpeed);
+            RaycastHit2D lowerRay = Physics2D.Raycast(new Vector3(rightCheck.position.x, knee.position.y), Vector2.right, runSpeed);
+            
+            distanceToSnap = Mathf.Max(upperRay.distance, lowerRay.distance);
+            
+            return upperRay.collider != null || lowerRay.collider != null;          //return true if any of the rays collide
+        }
+        else
+        {
+            runSpeed = -runSpeed;
+            RaycastHit2D upperRay = Physics2D.Raycast(new Vector3(leftCheck.position.x, head.position.y), Vector2.left, runSpeed);
+            RaycastHit2D lowerRay = Physics2D.Raycast(new Vector3(leftCheck.position.x, knee.position.y), Vector2.left, runSpeed);
+            
+            distanceToSnap = - Mathf.Max(upperRay.distance, lowerRay.distance);
+         
+            return upperRay.collider != null || lowerRay.collider != null;          //return true if any of the rays collide
+        }
     }
 }

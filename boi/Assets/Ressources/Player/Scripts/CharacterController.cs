@@ -83,7 +83,7 @@ public class CharacterController : MonoBehaviour
     {
         animator.SetFloat("Speed", horizontalMovement);
         MoveHorizontal(horizontalMovement * -Swapped);
-        verticalMovement(hop, up, spaceWasReleased, wallJump);
+        VerticalMovement(hop, up, spaceWasReleased, wallJump);
         runDeceleration = baseRunDeceleration;
         playerCollisions.RectifyPosition();
     }
@@ -124,48 +124,18 @@ public class CharacterController : MonoBehaviour
             AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runAcceleration);
         }
 
-        if (RunSpeed > 0)
+        if (playerCollisions.ShouldSnapHorizontaly(RunSpeed * Time.deltaTime, out float distanceToSnap))
         {
-            //RunSpeed *= horizontalMovement > 0.001 ? horizontalMovement : 1;
-            horizontalMovement = CheckHorizontalRightCollision(RunSpeed, !Grounded ? airSpeedMultiplier : 1);
+            m_Transform.Translate(new Vector3(distanceToSnap, 0));
+            RunSpeed = 0;
         }
-        else if (RunSpeed < 0)
+        else
         {
-            //RunSpeed *= horizontalMovement < -0.001 ? -horizontalMovement : 1;
-            horizontalMovement = CheckHorizontalLeftCollision(RunSpeed, !Grounded ? airSpeedMultiplier : 1);
+            m_Transform.Translate(new Vector3(RunSpeed * Time.deltaTime, 0));
         }
-        m_Transform.Translate(new Vector3(horizontalMovement, 0));
     }
 
-    private float CheckHorizontalRightCollision(float horizontalMovement, float multiplier)
-    {
-        return horizontalMovement * Time.deltaTime * multiplier;
-
-        RaycastHit2D hitRight = Physics2D.Raycast(rightCheck.position, Swapped == 1? Vector2.left : Vector2.right);
-        if (hitRight.collider == null)
-        {
-            return horizontalMovement * Time.deltaTime * multiplier;
-        }
-        float minDistance = multiplier * horizontalMovement * Time.deltaTime;
-        minDistance = minDistance < hitRight.distance ? minDistance : hitRight.distance;
-        return minDistance;
-    }
-
-    private float CheckHorizontalLeftCollision(float horizontalMovement, float multiplier)
-    {
-        return horizontalMovement * Time.deltaTime * multiplier;
-
-        RaycastHit2D hitLeft = Physics2D.Raycast(leftCheck.position, Swapped == 1 ? Vector2.left : Vector2.right);
-        if (hitLeft.collider == null)
-        {
-            return horizontalMovement * Time.deltaTime * multiplier;
-        }
-        float minDistance = Mathf.Abs(multiplier * horizontalMovement * Time.deltaTime);
-        minDistance = minDistance < hitLeft.distance ? minDistance : hitLeft.distance;
-        return - minDistance;
-    }
-
-    public void verticalMovement(bool hop, bool up, bool spaceWasReleased, bool wallJump)
+    public void VerticalMovement(bool hop, bool up, bool spaceWasReleased, bool wallJump)
     {
         animator.SetBool("Onair", Grounded);
         
@@ -195,7 +165,7 @@ public class CharacterController : MonoBehaviour
         m_Transform.Translate(new Vector3(0, verticalVelocity * Time.deltaTime));
     }
 
-    void Jump()
+    private void Jump()
     {
         airTime += Time.deltaTime;
         if (verticalVelocity > 0)
@@ -240,12 +210,12 @@ public class CharacterController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.tag == "BOUNCE")
+        if (hitInfo.CompareTag("BOUNCE"))
         {
             Grounded = false;
             verticalVelocity = bounceSpeed;
         }
-        if (hitInfo.tag == "GravSwap")
+        if (hitInfo.CompareTag("GravSwap"))
             hitInfo.gameObject.GetComponent<SwapGravity>().gravityShouldSwap = true;
 
     }
