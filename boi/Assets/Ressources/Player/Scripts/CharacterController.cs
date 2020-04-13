@@ -39,11 +39,11 @@ public class CharacterController : MonoBehaviour
     public float pushBlockSpeed;
     private float baseRunDeceleration;
 
-    private Transform rightCheck;
-    private Transform leftCheck;
-    private float joystick;
     [SerializeField] private float minDropDistance;
     private bool coyoteHop;
+    private RailScript standingOn;
+    private Vector3 groundMomentum;
+    [SerializeField] private float groundMomentumDeceleration;
 
     void Start()
     {
@@ -57,8 +57,6 @@ public class CharacterController : MonoBehaviour
         airSpeedMultiplier = airSpeedMultiplier / tempo.getBpm() * 120f;
         
         collisions = m_Transform.Find("Collisions");
-        rightCheck = collisions.Find("rightCheck");
-        leftCheck = collisions.Find("leftCheck");
         // RunSpeed adaptation to bpm
     }
 
@@ -87,7 +85,29 @@ public class CharacterController : MonoBehaviour
         MoveHorizontal(horizontalMovement * -Swapped);
         VerticalMovement(hop, up, spaceWasReleased, wallJump);
         runDeceleration = baseRunDeceleration;
+        KeepMomentum();
+        
         playerCollisions.RectifyPosition();
+    }
+
+    private void KeepMomentum()
+    {
+        if (standingOn != null)
+        {
+            if (Grounded)
+            {
+                groundMomentum = standingOn.MovementVector;
+            }
+            else
+            {
+                groundMomentum -= groundMomentum.normalized * Time.deltaTime * groundMomentumDeceleration;
+                if (groundMomentum.magnitude < 0.05f)
+                {
+                    groundMomentum = new Vector3();
+                }
+            }
+            transform.Translate(groundMomentum);
+        }
     }
 
     private bool AimForSpeed(float speed, float acceleration)
@@ -223,9 +243,19 @@ public class CharacterController : MonoBehaviour
         coyoteTimeCounter = 0;
         coyoteHop = false;
         airTime = 0;
+        standingOn = null;
         if (hitGround.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
         {
             platform.isSteppedOn();
+        }
+        if (hitGround.transform.gameObject.tag =="MovingPlatform")
+        {
+            //TODO: There should be an abstract class that contains generic methods that platforms and stuff should do. RailScript should inherit from this class.
+            standingOn = hitGround.transform.gameObject.GetComponent<RailScript>();
+            if (standingOn == null)
+            {
+                standingOn = hitGround.transform.parent.GetComponent<RailScript>();
+            }
         }
     }
 

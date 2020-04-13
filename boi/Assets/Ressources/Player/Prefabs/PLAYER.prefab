@@ -250,6 +250,7 @@ MonoBehaviour:
   bounceSpeed: 60
   pushBlockSpeed: 0.1
   minDropDistance: 0.4
+  groundMomentumDeceleration: 0.1
 --- !u!114 &2758391791921759296
 MonoBehaviour:
   m_ObjectHideFlags: 0
