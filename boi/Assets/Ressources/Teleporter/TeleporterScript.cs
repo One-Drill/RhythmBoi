@@ -13,6 +13,8 @@ public class TeleporterScript : MonoBehaviour
     public TMP_Text tpIndex;
     private int tpSelect;
     private bool canTp = false;
+    public GameObject camera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class TeleporterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       bool t =  camera.activeInHierarchy;
 
         if (canTp)
         {
