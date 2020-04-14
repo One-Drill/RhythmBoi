@@ -50,6 +50,7 @@ public class SwapGravity : MonoBehaviour
         {
             this.gameObject.transform.GetChild(i).gameObject.GetComponent<Box>().swapped = gravitySwapped ? 1 : -1;
         }
-        characterController.swapped = gravitySwapped ? 1 : -1;
+        characterController.verticalVelocity *= -1;
+        characterController.Swapped = gravitySwapped ? 1 : -1;
     }
 }

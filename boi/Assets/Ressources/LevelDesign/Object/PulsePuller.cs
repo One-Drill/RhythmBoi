@@ -61,7 +61,7 @@ public class PulsePuller : MonoBehaviour
         if (Mathf.Abs(pushDirection.x) < Mathf.Abs(pushVector.x) && Mathf.Abs(pushDirection.y) < Mathf.Abs(pushVector.y))
         {
             characterController.runDeceleration = 0;
-            characterController.runSpeed -= (pushVector.x - pushDirection.x) / xDivider;
+            characterController.RunSpeed -= (pushVector.x - pushDirection.x) / xDivider;
             characterController.verticalVelocity -= (pushVector.y - pushDirection.y) * Time.deltaTime / yDivider;
         }
     }

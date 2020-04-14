@@ -27,9 +27,9 @@ public class SwitchDoor : MonoBehaviour
         m_Transform = GetComponent<Transform>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         player = GameObject.Find("PLAYER");
-        GameObject spritesprite = player.transform.GetChild(2).gameObject;
+        GameObject spritesprite = player.transform.GetChild(1).gameObject;
         playerSprite = spritesprite.GetComponent<SpriteRenderer>();
-        runSpeed = characterController.runSpeed;
+        runSpeed = characterController.RunSpeed;
         jumpSpeed = characterController.jumpSpeed;
 
     }
@@ -52,7 +52,7 @@ public class SwitchDoor : MonoBehaviour
     {
         if (!playerHasMoved)
         {
-            characterController.runSpeed = 0;
+            characterController.RunSpeed = 0;
             characterController.jumpSpeed = 0;
             yield return new WaitForSeconds(0.5f);
             player.transform.position = new Vector3(100, 10);
@@ -71,7 +71,7 @@ public class SwitchDoor : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 player.transform.position = temp;
                 playerSprite.enabled = true;
-                characterController.runSpeed = runSpeed;
+                characterController.RunSpeed = runSpeed;
                 characterController.jumpSpeed = jumpSpeed;
 
             }
