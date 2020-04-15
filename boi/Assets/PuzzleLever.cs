@@ -26,9 +26,12 @@ public class PuzzleLever : MonoBehaviour
    //     m_Transform = GetComponent<Transform>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        doorScriptOne = doorOne.GetComponent<DoorPuzzleLever>().doorStatement;
-        doorScriptTwo = doorTwo.GetComponent<DoorPuzzleLever>().doorStatement;
-        doorScriptThree = doorThree.GetComponent<DoorPuzzleLever>().doorStatement;
+        if (doorOne)
+            doorScriptOne = doorOne.GetComponent<DoorPuzzleLever>().doorStatement;
+        if (doorTwo)
+            doorScriptTwo = doorTwo.GetComponent<DoorPuzzleLever>().doorStatement;
+        if (doorThree)
+            doorScriptThree = doorThree.GetComponent<DoorPuzzleLever>().doorStatement;
     }
 
     void Update()
