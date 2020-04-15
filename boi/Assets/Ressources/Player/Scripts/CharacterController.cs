@@ -49,8 +49,9 @@ public class CharacterController : MonoBehaviour
     {
         Swapped = -1;
         playerCollisions = GetComponent<PlayerCollisions>();
-        baseRunDeceleration = runDeceleration;
         RunSpeed = RunSpeed / 120f * tempo.getBpm();
+        baseRunDeceleration = runDeceleration;
+        maxRunSpeed = maxRunSpeed / 120f * tempo.getBpm();
         jumpDeceleration = jumpDeceleration / 120f * tempo.getBpm();
         fallAcceleration = fallAcceleration / 120f * tempo.getBpm();
         maxFallSpeed = maxFallSpeed / 120f * tempo.getBpm();
