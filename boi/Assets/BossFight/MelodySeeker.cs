@@ -47,7 +47,7 @@ public class MelodySeeker : MonoBehaviour
     
     public bool indicateKeyNote(int offset)
     {
-        if (inSync() && melodyMarker[(noteNumber + offset * harmonicMultiplier * timeSignature - 1)  % (melodyMarker.Length)] != 'X')
+        if (inSync() && melodyMarker[(noteNumber + offset * harmonicMultiplier * timeSignature)  % (melodyMarker.Length)] != 'X')
         {
             return (true);
         }
