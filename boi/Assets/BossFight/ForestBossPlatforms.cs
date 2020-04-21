@@ -130,8 +130,28 @@ public class ForestBossPlatforms : MonoBehaviour
         // cast des piques
         spikeDance();
         // cast des épées
-        if (gameObject.activeInHierarchy == false)
+        if (sword.activeInHierarchy == false)
            sword.SetActive(true);
+    }
+
+    private void Phase4()
+    {
+        //reset de la phase en case de non reussite
+        if (bars == startPhaseBar[3] && heightLevel < 0)
+        {
+            //melody.setMusicTime(16)
+            melody.setMusicTime(32);
+            bars = startPhaseBar[2];
+        }
+        // cast des elements inclus dans la phase
+        platformLogic();
+        melodyAnnouncer();
+        stepController();
+        // cast des piques
+        spikeDance();
+        // cast des épées
+        if (gameObject.activeInHierarchy == false)
+            sword.SetActive(true);
         // tambours
         drums();
 
