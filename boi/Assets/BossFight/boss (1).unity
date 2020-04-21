@@ -957,6 +957,7 @@ MonoBehaviour:
   offset: 0
   stepUpDist: 1
   maxHeight: 4
+  sword: {fileID: 0}
   onBeat: 0
   beats: 0
   bars: 0
@@ -1406,7 +1407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2082493103
 MonoBehaviour:
   m_ObjectHideFlags: 0
