@@ -944,10 +944,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformCombination:
-  - ABCDE
-  - ABCXX
-  - ABCXX
-  - FXHXG
+  - BCDEX
+  - BCXEX
+  - BGXXA
+  - HXEXG
   spikeCombination:
   - AXXXEXXX
   - XBXDXXXX
@@ -960,7 +960,7 @@ MonoBehaviour:
   onBeat: 0
   beats: 0
   bars: 0
-  startPhaseBar: 000000000800000010000000
+  startPhaseBar: 00000000080000001000000018000000
 --- !u!1 &1562634268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,8 +1198,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2758391791921759310, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8, type: 3}
 --- !u!4 &1760790562 stripped
 Transform:
@@ -1407,7 +1406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2082493103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,7 +1421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertexCount: 8
   lineWidth: 0.2
-  radius: 20
+  radius: 15
   vertex: []
   swords:
   - {fileID: 0}
@@ -1545,8 +1544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082493102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.721034, y: -2.8394775, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.33, y: -5.86, z: 0.047549}
+  m_LocalScale: {x: 0.9049, y: 0.9049, z: 0.9049}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6

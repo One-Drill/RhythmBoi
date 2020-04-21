@@ -18,6 +18,7 @@ public class ForestBossPlatforms : MonoBehaviour
     private static int heightLevel;
     public int maxHeight;
     private int notesPlayed;
+    public GameObject sword;
 
 
     // spikes
@@ -63,17 +64,29 @@ public class ForestBossPlatforms : MonoBehaviour
             }
             bars++;
         }
-        // lancement des phases en fonction de l'avancement de la musique / dans l'idéal il faudrait les inclure dans un while music et mettre une fonction pour quitter proprement 
+        // lancement des phases en fonction de l'avancement de la musique / dans l'idéal il faudrait les inclure dans un while music et mettre une fonction pour quitter proprement
+        //lumiere
         if (bars <= startPhaseBar[1])
                 Phase1();
-        if (bars >= startPhaseBar[1])
+        //piques
+        if (bars >= startPhaseBar[1] && bars < startPhaseBar[2])
                 Phase2();
+        //epees
+        if (bars >= startPhaseBar[2] && bars < startPhaseBar[3])
+        {
+            Phase3();
+        }
+        //tambours
+        if (bars >= startPhaseBar[3] && bars < startPhaseBar[4])
+        {
+            Phase4();
+        }
     }
 
     private void Phase1()
     {
         //reset de la phase en cas de non reussite
-        if (bars == 8 && heightLevel < 2)
+        if (bars == startPhaseBar[1] && heightLevel < 0)
         {
             melody.setMusicTime(0);
             bars = startPhaseBar[0];
@@ -87,7 +100,7 @@ public class ForestBossPlatforms : MonoBehaviour
     private void Phase2()
     {
         //reset de la phase en case de non reussite
-        if (bars == 16 && heightLevel < 4)
+        if (bars == startPhaseBar[2] && heightLevel < 0)
         {
             //melody.setMusicTime(16)
             melody.setMusicTime(16);
@@ -99,6 +112,34 @@ public class ForestBossPlatforms : MonoBehaviour
         stepController();
         // cast des piques
         spikeDance();
+    }
+
+    private void Phase3()
+    {
+        //reset de la phase en case de non reussite
+        if (bars == startPhaseBar[3] && heightLevel < 0)
+        {
+            //melody.setMusicTime(16)
+            melody.setMusicTime(32);
+            bars = startPhaseBar[2];
+        }
+        // cast des elements inclus dans la phase
+        platformLogic();
+        melodyAnnouncer();
+        stepController();
+        // cast des piques
+        spikeDance();
+        // cast des épées
+        if (gameObject.activeInHierarchy == false)
+           sword.SetActive(true);
+        // tambours
+        drums();
+
+    }
+
+    private void drums()
+    {
+
     }
 
     void stepController()

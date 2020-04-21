@@ -14,7 +14,6 @@ public class MelodySeeker : MonoBehaviour
 
     void Start()
     {
-        noteNumber = 0;
         tempo = GetComponent<TempoSignal>();
     }
 
