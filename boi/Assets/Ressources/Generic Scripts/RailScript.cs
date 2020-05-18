@@ -12,10 +12,12 @@ public class RailScript : MonoBehaviour
     private float mpb = 0;
     public float waitPercent;
     public float goPercent;
-    private int  i = 1;
+    private int i = 1;
     private FollowerOfTheRhythm tempo;
     private bool coroutineAllowed = true;
     private bool returning = false;
+
+    public Vector3 MovementVector { get; private set; }
     void Start()
     {
         tempo = GetComponent<FollowerOfTheRhythm>();
@@ -25,7 +27,7 @@ public class RailScript : MonoBehaviour
     void Update()
     {
         mpb = 60f / tempo.getBpm();
-        if(coroutineAllowed)
+        if (coroutineAllowed)
         {
             currentSpoint = transform.position;
             currentEpoint = points[i].position;
@@ -39,15 +41,18 @@ public class RailScript : MonoBehaviour
         float waitTime = 0f;
         coroutineAllowed = false;
         float time = 0f;
-        while(transform.position.x != end.x || transform.position.y != end.y)
+        while (transform.position.x != end.x || transform.position.y != end.y)
         {
             time += Time.deltaTime / mpb * goPercent;
+            MovementVector = transform.position;
             transform.position = Vector3.Lerp(start, end, time);
+            MovementVector = transform.position - MovementVector;
             yield return null;
         }
         waitTime = Time.time + mpb * waitPercent;
         while (Time.time < waitTime)
         {
+            MovementVector = new Vector3();
             yield return null;
         }
         if (i == points.Length - 1)
@@ -69,7 +74,7 @@ public class RailScript : MonoBehaviour
         {
             i--;
         }
-        coroutineAllowed =  true;
+        coroutineAllowed = true;
     }
 
 }

@@ -10,16 +10,11 @@ public class CharacterController : MonoBehaviour
     //
     private Transform m_Transform;
     private BoxCollider2D m_BoxCollider;
-    public Transform leftDownCheck;
-    public Transform leftUpCheck;
-    public Transform rightDownCheck;
-    public Transform rightUpCheck;
-    public Transform leftMiddleCheck;
-    public Transform rightMiddleCheck;
     public Transform groundCheck;
     public Transform headCheck;
     public float jumpSpeed;
     private FollowerOfTheRhythm tempo;
+    private PlayerCollisions playerCollisions;
     public float verticalVelocity;
     public float jumpDeceleration;
     public float runAcceleration;
@@ -27,47 +22,49 @@ public class CharacterController : MonoBehaviour
     public float maxRunSpeed;
     public float maxFallSpeed;
     public float fallAcceleration;
-    public bool grounded; // Accessed from playerMovement, should find way to make private.
-    private bool m_FacingRight = true;
-    public float runSpeed = 10f;
+    public bool Grounded { get; private set; } // Accessed from playerMovement, should find way to make private.
+    public float RunSpeed { get; set; }
     public float airSpeedMultiplier = 1.5f;
+    private Transform collisions;
     public Transform sprite;
-    private float slideSpeed = -1;
-    private float beatDuration = 0;
     private bool spaceReleased = false;
     private float airTime = 0;
     public float shortHopDuration;
     public float fastStop;
     private float normalDeceleration;
-    private bool canWallJump = false;
-    private bool hasWallJumped = false;
     public float coyoteTime;
     private float coyoteTimeCounter = 0;
-    public float BounceSpeed;
-    public int swapped = -1;
+    public float bounceSpeed;
+    public int Swapped { get; set; }
     public float pushBlockSpeed;
     private float baseRunDeceleration;
 
-    // private bool falplat;
+    [SerializeField] private float minDropDistance;
+    private bool coyoteHop;
+    private RailScript standingOn;
+    private Vector3 groundMomentum;
+    [SerializeField] private float groundMomentumDeceleration;
 
-    //ABDUL START
     void Start()
     {
-        print(tempo.getBpm());
+        Swapped = -1;
+        playerCollisions = GetComponent<PlayerCollisions>();
+        RunSpeed = RunSpeed / 120f * tempo.getBpm();
         baseRunDeceleration = runDeceleration;
         maxRunSpeed = maxRunSpeed / 120f * tempo.getBpm();
         jumpDeceleration = jumpDeceleration / 120f * tempo.getBpm();
         fallAcceleration = fallAcceleration / 120f * tempo.getBpm();
         maxFallSpeed = maxFallSpeed / 120f * tempo.getBpm();
         airSpeedMultiplier = airSpeedMultiplier / tempo.getBpm() * 120f;
+        
+        collisions = m_Transform.Find("Collisions");
         // RunSpeed adaptation to bpm
     }
-    //ABDUL END
 
     void Awake()
     {
         normalDeceleration = jumpDeceleration;
-        grounded = false;
+        Grounded = false;
         verticalVelocity = 0;
         tempo = GetComponent<FollowerOfTheRhythm>();
         m_Transform = GetComponent<Transform>();
@@ -77,7 +74,7 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        if (swapped == 1)
+        if (Swapped == 1)
             m_Transform.eulerAngles = new Vector3(0, 0, 180);
         else
             m_Transform.eulerAngles = new Vector3(0, 0, 0);
@@ -86,283 +83,191 @@ public class CharacterController : MonoBehaviour
     public void Move(float horizontalMovement, bool hop, bool up, bool down, bool spaceWasReleased, bool wallJump)
     {
         animator.SetFloat("Speed", horizontalMovement);
-        canWallJump = wallJumpCheck();
-        moveHorizontal(horizontalMovement * -swapped);
-        //horizontalMovement = slide(runSpeed * horizontalMovement, down);
-        verticalMovement(hop, up, spaceWasReleased, wallJump);
+        MoveHorizontal(horizontalMovement * -Swapped);
+        VerticalMovement(hop, up, spaceWasReleased, wallJump);
         runDeceleration = baseRunDeceleration;
+        KeepMomentum();
+        
+        playerCollisions.RectifyPosition();
     }
 
-    public void moveHorizontal(float horizontalMovement)
+    private void KeepMomentum()
     {
-        /*if (horizontalMovement > 0 && !m_FacingRight)
+        if (standingOn != null)
         {
-            flip();
+            if (Grounded)
+            {
+                groundMomentum = standingOn.MovementVector;
+            }
+            else
+            {
+                groundMomentum -= groundMomentum.normalized * Time.deltaTime * groundMomentumDeceleration;
+                if (groundMomentum.magnitude < 0.05f)
+                {
+                    groundMomentum = new Vector3();
+                }
+            }
+            transform.Translate(groundMomentum);
         }
-        else if (horizontalMovement < 0 && m_FacingRight)
+    }
+
+    private bool AimForSpeed(float speed, float acceleration)
+    {
+        if (RunSpeed > speed)
         {
-            flip();
-        }*/
-        // MIGUEL IN : Setting up animator's param "Speed" with horizontalMovement to enable run animation if it is greater than 0!
+            RunSpeed -= acceleration * Time.deltaTime;
+            if (RunSpeed <= speed)
+            {
+                RunSpeed = speed;
+                return true;
+            }
+        }
+        else
+        {
+            RunSpeed += acceleration * Time.deltaTime;
+            if (RunSpeed > speed)
+            {
+                RunSpeed = speed;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void MoveHorizontal(float horizontalMovement)
+    {
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
-        // MIGUEL OUT
-        if (horizontalMovement > 0)
-            runSpeed += runAcceleration * Time.deltaTime;
-        else if (horizontalMovement < 0)
-            runSpeed -= runAcceleration * Time.deltaTime;
-        if (horizontalMovement == 0 && Mathf.Abs(runSpeed) <= 1)
-            runSpeed = 0;
-        if (horizontalMovement == 0 && Mathf.Abs(runSpeed) > 1)
-            runSpeed += (runSpeed > 0 ? -runDeceleration : runDeceleration) * Time.deltaTime;
-        runSpeed = Mathf.Clamp(runSpeed, -maxRunSpeed, maxRunSpeed);
-        if (runSpeed > 0)
+
+        if (horizontalMovement == 0)
         {
-            runSpeed *= horizontalMovement > 0.001 ? horizontalMovement : 1;
-            horizontalMovement = checkHorizontalRightCollision(runSpeed, !grounded ? airSpeedMultiplier : 1);
+            AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runDeceleration);
         }
-        else if (runSpeed < 0)
+        else
         {
-            runSpeed *= horizontalMovement < -0.001 ? -horizontalMovement : 1;
-            horizontalMovement = checkHorizontalLeftCollision(runSpeed, !grounded ? airSpeedMultiplier : 1);
+            AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runAcceleration);
         }
-        m_Transform.Translate(new Vector3(horizontalMovement, 0));
+
+        if (playerCollisions.ShouldSnapHorizontaly(RunSpeed * Time.deltaTime, out float distanceToSnap))
+        {
+            m_Transform.Translate(new Vector3(distanceToSnap, 0));
+            RunSpeed = 0;
+        }
+        else
+        {
+            m_Transform.Translate(new Vector3(RunSpeed * Time.deltaTime, 0));
+        }
     }
 
-    private float checkHorizontalRightCollision(float horizontalMovement, float multiplier)
+    public void VerticalMovement(bool hop, bool up, bool spaceWasReleased, bool wallJump)
     {
-        RaycastHit2D upRight = Physics2D.Raycast(rightUpCheck.position, swapped == 1? Vector2.left : Vector2.right);
-        RaycastHit2D middleRight = Physics2D.Raycast(rightMiddleCheck.position, swapped == 1? Vector2.left : Vector2.right);
-        RaycastHit2D downRight = Physics2D.Raycast(rightDownCheck.position, swapped == 1? Vector2.left : Vector2.right);
-        if (upRight.collider == null && middleRight.collider == null && downRight.collider == null)
+        animator.SetBool("Onair", Grounded);
+        
+        if (hop && (Grounded || coyoteHop))
         {
-            return horizontalMovement * Time.deltaTime * multiplier;
-        }
-        float minDistance = multiplier * horizontalMovement * Time.deltaTime;
-        if (upRight.collider != null)
-            minDistance = minDistance < upRight.distance ? minDistance : upRight.distance;
-        if (middleRight.collider != null)
-        {
-            minDistance = minDistance < middleRight.distance ? minDistance : middleRight.distance;
-            if (middleRight.distance <= minDistance && middleRight.transform.gameObject.TryGetComponent<Box>(out Box box))
-            {
-                box.moveRight(pushBlockSpeed);
-            }
-        }
-        if (downRight.collider != null)
-            minDistance = minDistance < downRight.distance ? minDistance : downRight.distance;
-        return minDistance;
-    }
-
-    private float checkHorizontalLeftCollision(float horizontalMovement, float multiplier)
-    {
-        RaycastHit2D upLeft = Physics2D.Raycast(leftUpCheck.position, swapped == 1 ? Vector2.right : Vector2.left);
-        RaycastHit2D middleLeft = Physics2D.Raycast(leftMiddleCheck.position, swapped == 1 ? Vector2.right : Vector2.left);
-        RaycastHit2D downLeft = Physics2D.Raycast(leftDownCheck.position, swapped == 1 ? Vector2.right : Vector2.left);
-        if (upLeft.collider == null && middleLeft.collider == null && downLeft.collider == null)
-        {
-            return horizontalMovement * Time.deltaTime * multiplier;
-        }
-        float minDistance = Mathf.Abs(multiplier * horizontalMovement * Time.deltaTime);
-        if (upLeft.collider != null)
-            minDistance = minDistance < upLeft.distance ? minDistance : upLeft.distance;
-        if (middleLeft.collider != null)
-        { 
-            minDistance = minDistance < middleLeft.distance ? minDistance : middleLeft.distance;
-            if (middleLeft.distance <= minDistance && middleLeft.transform.gameObject.TryGetComponent<Box>(out Box box))
-            {
-                box.moveLeft(pushBlockSpeed);
-            }
-        }
-        if (downLeft.collider != null)
-            minDistance = minDistance < downLeft.distance ? minDistance : downLeft.distance;
-        return minDistance * -1;
-    }
-
-    private bool wallJumpCheck()
-    {
-        RaycastHit2D middleRight = Physics2D.Raycast(rightMiddleCheck.position, swapped == 1? Vector2.left : Vector2.right);
-        RaycastHit2D middleLeft = Physics2D.Raycast(leftMiddleCheck.position, swapped == 1? Vector2.right : Vector2.left);
-        if (middleRight.collider == null && middleLeft.collider == null)
-            return false;
-        if (middleRight.distance > 0.7f && middleLeft.distance > 0.7f)
-            return false;
-        if (hasWallJumped || grounded)
-            return false;
-        return true;
-    }
-        private void flip()
-    {
-        m_FacingRight = !m_FacingRight;
-
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
-
-    public void verticalMovement(bool hop, bool up, bool spaceWasReleased, bool wallJump)
-    {
-        // MIGUEL IN : stealing grounded param to know when to activate JUMP anim
-        animator.SetBool("Onair", grounded);
-        // MIGUEL OUT
-        if (grounded && hop)
-        {
-            grounded = false;
+            Grounded = false;
+            coyoteHop = false;
             spaceReleased = false;
             verticalVelocity = jumpSpeed;
-        }
-        if (canWallJump && wallJump)
-        {
-            grounded = false;
-            spaceReleased = false;
-            verticalVelocity = jumpSpeed;
-            hasWallJumped = true;
-            canWallJump = false;
         }
         if (spaceWasReleased)
             spaceReleased = true;
 
 
-        RaycastHit2D hitFloor = Physics2D.Raycast(groundCheck.position, swapped == 1 ? Vector2.up : Vector2.down);
-        if (hitFloor.collider == null || hitFloor.distance > Mathf.Abs(verticalVelocity) + 0.1f)
+        RaycastHit2D hitFloor = Physics2D.Raycast(groundCheck.position, Swapped == 1 ? Vector2.up : Vector2.down);
+        if (hitFloor.collider == null || hitFloor.distance > minDropDistance)
         {
-            grounded = false;
-            //if (grounded)
-            //    coyoteTimeCounter += Time.deltaTime;
-        }
-        //if (coyoteTimeCounter >= coyoteTime)
-          //  grounded = false;
-        jumpDeceleration = normalDeceleration;
-        if (!grounded)
-        {
-            //if (canWallJump)
-             //   wallGrabJump(hitFloor);
-            //else
-                jump(hitFloor);
-        }
-        m_Transform.Translate(new Vector3(0, verticalVelocity));
-    }
-
-    public float slide(float horizontalMovement, bool down)
-    {
-        if (down && beatDuration <= 0 && grounded)
-        {
-            slideSpeed = horizontalMovement * 2;
-            beatDuration = 50 / tempo.getBpm();
-            sprite.Translate(new Vector3(0, -0.1f, 0));
-            sprite.Rotate(new Vector3(0, 0, -60));
-        }
-        if (beatDuration > 0)
-        {
-            beatDuration -= Time.deltaTime;
-            if (beatDuration <= 0)
+            if (Grounded)
             {
-                slideSpeed = -1;
-                sprite.Rotate(new Vector3(0, 0, 60));
-                sprite.Translate(new Vector3(0, 0.1f, 0));
-            }
-        }
-        return slideSpeed == -1 ? horizontalMovement : slideSpeed;
-
-    }
-
-    void wallGrabJump(RaycastHit2D hitFloor)
-    {
-        airTime += Time.deltaTime;
-        if (verticalVelocity > 0)
-        {
-            if (airTime >= shortHopDuration && spaceReleased)
-                jumpDeceleration = fastStop;
-            verticalVelocity -= jumpDeceleration * Time.deltaTime * 1.2f;
-            RaycastHit2D hitCeil = Physics2D.Raycast(headCheck.position, Vector2.up);
-            if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity) + 0.1f)
-            {
-                m_Transform.Translate(new Vector3(0, hitCeil.distance));
-                verticalVelocity = 0;
-            }
-        }
-        if (verticalVelocity <= 0)
-        {
-            verticalVelocity -= fallAcceleration * Time.deltaTime / 5;
-            if (verticalVelocity < -maxFallSpeed / 2)
-                verticalVelocity = maxFallSpeed;
-            hitFloor = Physics2D.Raycast(groundCheck.position, Vector2.down);
-            if (hitFloor.collider != null && hitFloor.distance < Mathf.Abs(verticalVelocity) + 0.1f)
-            {
-                m_Transform.Translate(new Vector3(0, -hitFloor.distance));
-                airTime = 0;
-                verticalVelocity = 0;
-                grounded = true;
-                hasWallJumped = false;
-                coyoteTimeCounter = 0;
-                //WENDRUL START
-                if (hitFloor.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
+                Grounded = false;               
+                if (hitFloor.distance < minDropDistance)
                 {
-                    platform.isSteppedOn();
+                    transform.Translate(new Vector3(0, -hitFloor.distance));
                 }
-                //WENDRUL OUT
-                // ABDOUL IN
-                //   if (Physics2D.Raycast(groundCheck.tag, Vector2.down) == "FallingPlatform")
-                //       falplat = true;
-                //ABDOUL OUT
+                else
+                {
+                    coyoteHop = true;
+                }
             }
         }
-
+        if (coyoteHop)
+        {
+            coyoteTimeCounter += Time.deltaTime;
+            if (coyoteTimeCounter > coyoteTime)
+            {
+                coyoteHop = false;
+                coyoteTimeCounter = 0;
+            }
+        }
+        jumpDeceleration = normalDeceleration;
+        if (!Grounded)
+        {
+            Jump();
+        }
+        m_Transform.Translate(new Vector3(0, verticalVelocity * Time.deltaTime));
     }
 
-    void jump(RaycastHit2D hitFloor)
+    private void Jump()
     {
         airTime += Time.deltaTime;
         if (verticalVelocity > 0)
         {
             if (airTime >= shortHopDuration && spaceReleased)
-                jumpDeceleration = fastStop;
-            verticalVelocity -= jumpDeceleration * Time.deltaTime;
-            RaycastHit2D hitCeil = Physics2D.Raycast(headCheck.position, swapped == 1? Vector2.down : Vector2.up);
-            if (hitCeil.collider != null && hitCeil.distance < Mathf.Abs(verticalVelocity) + 0.1f)
             {
-                m_Transform.Translate(new Vector3(0, hitCeil.distance));
+                jumpDeceleration = fastStop;
+            }
+            verticalVelocity -= jumpDeceleration * Time.deltaTime;
+            if (playerCollisions.ShouldSnapToCeiling(verticalVelocity, out float distanceToSnap))
+            {
+                m_Transform.Translate(new Vector3(0, distanceToSnap));
                 verticalVelocity = 0;
-                //if (hitCeil.transform.gameObject.TryGetComponent<SwapGravity>(out SwapGravity gravSwapper))
-                 //   gravSwapper.gravityShouldSwap = true;
-             // else if (hitCeil.transform.gameObject.TryGetComponent<TimedGravSwap>(out TimedGravSwap timedGravSwapper))
-              //      timedGravSwapper.gravityShouldSwap = true;
             }
         }
         if (verticalVelocity <= 0)
         {
             verticalVelocity -= fallAcceleration * Time.deltaTime;
             if (verticalVelocity < -maxFallSpeed)
-                verticalVelocity = maxFallSpeed;
-            if (hitFloor.collider != null && hitFloor.distance < Mathf.Abs(verticalVelocity) + 0.1f)
             {
-                m_Transform.Translate(new Vector3(0, -hitFloor.distance));
-                airTime = 0;
+                verticalVelocity = -maxFallSpeed;
+            }
+            if (playerCollisions.ShouldSnapToGround(verticalVelocity, out float distanceToSnap, out RaycastHit2D hitGround))
+            {
+                m_Transform.Translate(Vector2.down * distanceToSnap);
                 verticalVelocity = 0;
-                coyoteTimeCounter = 0;
-                grounded = true;
-                hasWallJumped = false;
-                //WENDRUL START
-                if (hitFloor.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
-                {
-                    platform.isSteppedOn();
-                }
-                //WENDRUL OUT
-                // ABDOUL IN
-                //   if (Physics2D.Raycast(groundCheck.tag, Vector2.down) == "FallingPlatform")
-                //       falplat = true;
-                //ABDOUL OUT
+                Grounded = true;
+                OnLanding(hitGround);
+            }
+        }
+    }
+
+    public void OnLanding(RaycastHit2D hitGround)
+    {
+        coyoteTimeCounter = 0;
+        coyoteHop = false;
+        airTime = 0;
+        standingOn = null;
+        if (hitGround.transform.gameObject.TryGetComponent<ActivatablePlatform>(out ActivatablePlatform platform))
+        {
+            platform.isSteppedOn();
+        }
+        if (hitGround.transform.gameObject.tag =="MovingPlatform")
+        {
+            //TODO: There should be an abstract class that contains generic methods that platforms and stuff should do. RailScript should inherit from this class.
+            standingOn = hitGround.transform.gameObject.GetComponent<RailScript>();
+            if (standingOn == null)
+            {
+                standingOn = hitGround.transform.parent.GetComponent<RailScript>();
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.tag == "BOUNCE")
+        if (hitInfo.CompareTag("BOUNCE"))
         {
-            grounded = false;
-            verticalVelocity = BounceSpeed;
+            Grounded = false;
+            verticalVelocity = bounceSpeed;
         }
-        if (hitInfo.tag == "GravSwap")
+        if (hitInfo.CompareTag("GravSwap"))
             hitInfo.gameObject.GetComponent<SwapGravity>().gravityShouldSwap = true;
 
     }

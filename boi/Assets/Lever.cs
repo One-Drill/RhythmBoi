@@ -22,7 +22,7 @@ public class Lever : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && wasActivated == false)
         {
-            characterController.runSpeed = 0;
+            characterController.RunSpeed = 0;
             characterController.jumpSpeed = 0;
             wasActivated = true;
             SwitchDoor.whichLever++;

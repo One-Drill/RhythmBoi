@@ -33,7 +33,7 @@ public class FatalHit : MonoBehaviour
       //      panel.gameObject.SetActive(true);
           //  swapGravity.gravitySwapped = false;
             transform.position = respawnPoint;
-            characterController.runSpeed = 0;
+            characterController.RunSpeed = 0;
             characterController.verticalVelocity = 0;
             characterController.maxRunSpeed = 0.001f;
             characterController.jumpSpeed = 0f;

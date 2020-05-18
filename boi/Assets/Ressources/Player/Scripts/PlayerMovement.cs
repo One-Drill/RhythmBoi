@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         horizontalMove = Input.GetAxisRaw("Horizontal");
-        if (horizontalMove != 0 && !character.grounded)
+        if (horizontalMove != 0 && !character.Grounded)
             horizontalMove = horizontalMove < 0 ? -1 : 1;
         character.Move(horizontalMove, hop, up, down, spaceWasReleased, wallJump);
     }
