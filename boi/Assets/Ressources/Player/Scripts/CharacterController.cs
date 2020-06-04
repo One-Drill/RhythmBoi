@@ -15,15 +15,11 @@ public class CharacterController : MonoBehaviour
     public float jumpSpeed;
     private FollowerOfTheRhythm tempo;
     private PlayerCollisions playerCollisions;
-    public float verticalVelocity;
-    public float jumpDeceleration;
-    public float runAcceleration;
-    public float runDeceleration;
-    public float maxRunSpeed;
-    public float maxFallSpeed;
-    public float fallAcceleration;
+
+
+    
+    
     public bool Grounded { get; private set; } // Accessed from playerMovement, should find way to make private.
-    public float RunSpeed { get; set; }
     public float airSpeedMultiplier = 1.5f;
     private Transform collisions;
     public Transform sprite;
@@ -37,13 +33,33 @@ public class CharacterController : MonoBehaviour
     public float bounceSpeed;
     public int Swapped { get; set; }
     public float pushBlockSpeed;
-    private float baseRunDeceleration;
+    
 
     [SerializeField] private float minDropDistance;
     private bool coyoteHop;
     private RailScript standingOn;
-    private Vector3 groundMomentum;
+    private Vector3 platformMomentum;
+    
+    [Header("Ground Movement")]
+    [Space]
     [SerializeField] private float groundMomentumDeceleration;
+    public float maxRunSpeed;
+    private float baseRunDeceleration;
+    public float runAcceleration;
+    public float runDeceleration;
+    public float RunSpeed { get; set; }
+
+
+    [Header("Air Movement")]
+    [Space]
+    [SerializeField] private float maxAirSpeed;
+    [SerializeField] private float airAcceleration;
+    [SerializeField] private float airDeceleration;
+    public float maxFallSpeed;
+    public float fallAcceleration;
+    public float verticalVelocity;
+    public float jumpDeceleration;
+    [SerializeField] private float airMomentumDeceleration;
 
     void Start()
     {
@@ -92,58 +108,82 @@ public class CharacterController : MonoBehaviour
 
     private void KeepMomentum()
     {
-        if (standingOn != null)
+        if (Grounded)
         {
-            if (Grounded)
+            if (standingOn != null)
             {
-                groundMomentum = standingOn.MovementVector;
+                platformMomentum = standingOn.GetMovementVector();
+                print($"prediction:{platformMomentum.x}");
+
             }
-            else
+            else if (platformMomentum != null && platformMomentum.magnitude > 0)
             {
-                groundMomentum -= groundMomentum.normalized * Time.deltaTime * groundMomentumDeceleration;
-                if (groundMomentum.magnitude < 0.05f)
-                {
-                    groundMomentum = new Vector3();
-                }
+                platformMomentum.x = Time.deltaTime * AimForSpeed(0, groundMomentumDeceleration, platformMomentum.x / Time.deltaTime);
+                platformMomentum.y = 0;
             }
-            transform.Translate(groundMomentum);
+        }
+        else if (platformMomentum != null && platformMomentum.magnitude > 0)
+        {
+            platformMomentum.x = Time.deltaTime * AimForSpeed(0, airMomentumDeceleration, platformMomentum.x / Time.deltaTime);
+            platformMomentum.y = Time.deltaTime * AimForSpeed(0, airMomentumDeceleration, platformMomentum.y / Time.deltaTime);
+        }
+        if (platformMomentum != null)
+        {
+            transform.Translate(platformMomentum);
         }
     }
 
-    private bool AimForSpeed(float speed, float acceleration)
+
+
+    private float AimForSpeed(float speed, float acceleration, float speedToModify)
     {
-        if (RunSpeed > speed)
+
+        if (speedToModify > speed)
         {
-            RunSpeed -= acceleration * Time.deltaTime;
-            if (RunSpeed <= speed)
+            speedToModify -= acceleration * Time.deltaTime;
+            if (speedToModify <= speed)
             {
-                RunSpeed = speed;
-                return true;
+                speedToModify = speed;
+                return speedToModify;
             }
         }
         else
         {
-            RunSpeed += acceleration * Time.deltaTime;
-            if (RunSpeed > speed)
+            speedToModify += acceleration * Time.deltaTime;
+            if (speedToModify > speed)
             {
-                RunSpeed = speed;
-                return true;
+                speedToModify = speed;
+                return speedToModify;
             }
         }
-        return false;
+        return speedToModify;
     }
 
     private void MoveHorizontal(float horizontalMovement)
     {
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
 
-        if (horizontalMovement == 0)
+        if (Grounded)
         {
-            AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runDeceleration);
+            if (horizontalMovement == 0)
+            {
+                RunSpeed = AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runDeceleration, RunSpeed);
+            }
+            else
+            {
+                RunSpeed = AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runAcceleration, RunSpeed);
+            }
         }
         else
         {
-            AimForSpeed(Mathf.Lerp(-maxRunSpeed, maxRunSpeed, (horizontalMovement / 2) + 0.5f), runAcceleration);
+            if (horizontalMovement == 0)
+            {
+                RunSpeed = AimForSpeed(Mathf.Lerp(-maxAirSpeed, maxAirSpeed, (horizontalMovement / 2) + 0.5f), airDeceleration, RunSpeed);
+            }
+            else
+            {
+                RunSpeed = AimForSpeed(Mathf.Lerp(-maxAirSpeed, maxAirSpeed, (horizontalMovement / 2) + 0.5f), airAcceleration, RunSpeed);
+            }
         }
 
         if (playerCollisions.ShouldSnapHorizontaly(RunSpeed * Time.deltaTime, out float distanceToSnap))

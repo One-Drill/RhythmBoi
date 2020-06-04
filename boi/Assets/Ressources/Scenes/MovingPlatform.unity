@@ -128,15 +128,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4565057688973027111, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
+        type: 3}
+      propertyPath: points.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565057688973027111, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
+        type: 3}
+      propertyPath: goPercent
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7027976633168277069, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3414955
+      value: -4.73
       objectReference: {fileID: 0}
     - target: {fileID: 7027976633168277069, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.41
+      value: -16.7
       objectReference: {fileID: 0}
     - target: {fileID: 7027976633168277069, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
         type: 3}
@@ -188,7 +198,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: RailedPlatform
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7027976634566956124, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027976634834281818, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884337366633749573, guid: 67380e98e3eb9444c9ccdb0dcf9a153b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7027976632935924273, guid: 67380e98e3eb9444c9ccdb0dcf9a153b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67380e98e3eb9444c9ccdb0dcf9a153b, type: 3}
 --- !u!1001 &183112149
 PrefabInstance:
@@ -472,6 +498,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: maxAirSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: airAcceleration
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: airDeceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: airMomentumDeceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: groundMomentumDeceleration
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2758391791921759308, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
         type: 3}

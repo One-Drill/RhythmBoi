@@ -15,7 +15,9 @@ public class RailScript : MonoBehaviour
     private int i = 1;
     private FollowerOfTheRhythm tempo;
     private bool coroutineAllowed = true;
+    private float time;
     private bool returning = false;
+    private bool moving;
 
     public Vector3 MovementVector { get; private set; }
     void Start()
@@ -32,7 +34,6 @@ public class RailScript : MonoBehaviour
             currentSpoint = transform.position;
             currentEpoint = points[i].position;
             StartCoroutine(MoveObjectOnBeat(currentSpoint, currentEpoint));
-
         }
     }
 
@@ -40,18 +41,21 @@ public class RailScript : MonoBehaviour
     {
         float waitTime = 0f;
         coroutineAllowed = false;
-        float time = 0f;
+        time = 0f;
         while (transform.position.x != end.x || transform.position.y != end.y)
         {
             time += Time.deltaTime / mpb * goPercent;
             MovementVector = transform.position;
             transform.position = Vector3.Lerp(start, end, time);
             MovementVector = transform.position - MovementVector;
+            print($"Actual: {MovementVector.x}");
+            moving = true;
             yield return null;
         }
         waitTime = Time.time + mpb * waitPercent;
         while (Time.time < waitTime)
         {
+            moving = false;
             MovementVector = new Vector3();
             yield return null;
         }
@@ -75,6 +79,22 @@ public class RailScript : MonoBehaviour
             i--;
         }
         coroutineAllowed = true;
+    }
+
+    public Vector3 GetMovementVector()
+    {
+        if (transform.position.x != currentEpoint.x || transform.position.y != currentEpoint.y)
+        {
+            return (Vector3.Lerp(currentSpoint, currentEpoint, time + Time.deltaTime / mpb * goPercent) - transform.position);
+        }
+        else if (coroutineAllowed)
+        {
+            return (Vector3.Lerp(transform.position, points[i].position, Time.deltaTime / mpb * goPercent) - transform.position);
+        }
+        else
+        {
+            return (new Vector3());
+        }
     }
 
 }
