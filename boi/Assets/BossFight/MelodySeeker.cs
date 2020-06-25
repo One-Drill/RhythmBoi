@@ -10,7 +10,7 @@ public class MelodySeeker : MonoBehaviour
     public int harmonicMultiplier = 2;
     private string melodyMarker = "XXXXXXXXXXXXXXXXOXOXOOXOXXXXXXXX";
     private bool hasSung;
-    private int noteNumber;
+    private static int noteNumber;
 
     void Start()
     {

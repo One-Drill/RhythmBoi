@@ -64,32 +64,45 @@ public class ForestBossPlatforms : MonoBehaviour
             }
             bars++;
         }
-        // lancement des phases en fonction de l'avancement de la musique / dans l'idéal il faudrait les inclure dans un while music et mettre une fonction pour quitter proprement
-        //lumiere
+        // lancement des phases en fonction de l'avancement de la musique /
+
+        //initialisation des lumieres
         if (bars <= startPhaseBar[1])
                 Phase1();
-        //piques
-        if (bars >= startPhaseBar[1] && bars < startPhaseBar[2])
+
+        if (bars >= startPhaseBar[1] && bars <= startPhaseBar[2] && heightLevel == 1)
                 Phase2();
-        //epees
-        if (bars >= startPhaseBar[2] && bars < startPhaseBar[3])
+        //initialisation des piques
+        if (bars >= startPhaseBar[2] && bars <= startPhaseBar[3] && heightLevel == 2)
         {
             Phase3();
         }
-        //tambours
-        if (bars >= startPhaseBar[3] && bars < startPhaseBar[4])
+
+        if (bars >= startPhaseBar[3] && bars <= startPhaseBar[4] && heightLevel == 3)
         {
             Phase4();
         }
+
+        //initialisation de la dance des epee
+        if (bars >= startPhaseBar[4] && bars <= startPhaseBar[5] && heightLevel == 4)
+        {
+            Phase4();
+        }
+        if (bars >= startPhaseBar[6] && bars < startPhaseBar[7] && heightLevel == 5)
+        {
+            Phase4();
+        }
+        //initialisation des tambours
     }
 
     private void Phase1()
     {
         //reset de la phase en cas de non reussite
-        if (bars == startPhaseBar[1] && heightLevel < 0)
+        if (bars == startPhaseBar[1] && heightLevel < 1)
         {
             melody.setMusicTime(0);
             bars = startPhaseBar[0];
+            noteNumber = 0;
         }
         // cast des elements inclus dans la phase
         platformLogic();
@@ -100,28 +113,28 @@ public class ForestBossPlatforms : MonoBehaviour
     private void Phase2()
     {
         //reset de la phase en case de non reussite
-        if (bars == startPhaseBar[2] && heightLevel < 0)
+        if (bars == startPhaseBar[2] && heightLevel < 2)
         {
             //melody.setMusicTime(16)
-            melody.setMusicTime(16);
+            melody.setMusicTime(8);
             bars = startPhaseBar[1];
+            noteNumber = 0;
         }
         // cast des elements inclus dans la phase
         platformLogic();
         melodyAnnouncer();
         stepController();
-        // cast des piques
-        spikeDance();
     }
 
     private void Phase3()
     {
         //reset de la phase en case de non reussite
-        if (bars == startPhaseBar[3] && heightLevel < 0)
+        if (bars == startPhaseBar[3] && heightLevel < 3)
         {
             //melody.setMusicTime(16)
-            melody.setMusicTime(32);
+            melody.setMusicTime(16);
             bars = startPhaseBar[2];
+            noteNumber = 0;
         }
         // cast des elements inclus dans la phase
         platformLogic();
@@ -129,15 +142,13 @@ public class ForestBossPlatforms : MonoBehaviour
         stepController();
         // cast des piques
         spikeDance();
-        // cast des épées
-        if (sword.activeInHierarchy == false)
-           sword.SetActive(true);
+
     }
 
     private void Phase4()
     {
         //reset de la phase en case de non reussite
-        if (bars == startPhaseBar[3] && heightLevel < 0)
+        if (bars == startPhaseBar[3] && heightLevel <= 2)
         {
             //melody.setMusicTime(16)
             melody.setMusicTime(32);
@@ -152,14 +163,6 @@ public class ForestBossPlatforms : MonoBehaviour
         // cast des épées
         if (gameObject.activeInHierarchy == false)
             sword.SetActive(true);
-        // tambours
-        drums();
-
-    }
-
-    private void drums()
-    {
-
     }
 
     void stepController()
@@ -199,6 +202,7 @@ public class ForestBossPlatforms : MonoBehaviour
         }
     }
 
+    // a recoder
     void platformLogic()
     {
         if (melody.canMoveToMelody(offset))
@@ -232,6 +236,8 @@ public class ForestBossPlatforms : MonoBehaviour
         }
     }
 
+
+    // a recoder
     void melodyAnnouncer()
     {
         if (melody.canMoveToMelody(2))

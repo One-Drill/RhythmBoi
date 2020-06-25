@@ -957,11 +957,11 @@ MonoBehaviour:
   offset: 0
   stepUpDist: 1
   maxHeight: 4
-  sword: {fileID: 0}
+  sword: {fileID: 2082493102}
   onBeat: 0
   beats: 0
   bars: 0
-  startPhaseBar: 00000000080000001000000018000000
+  startPhaseBar: 0000000004000000080000000c000000100000001400000018000000
 --- !u!1 &1562634268
 GameObject:
   m_ObjectHideFlags: 0
