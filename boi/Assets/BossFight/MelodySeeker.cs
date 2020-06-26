@@ -10,8 +10,7 @@ public class MelodySeeker : MonoBehaviour
     public int harmonicMultiplier = 2;
     private string melodyMarker = "XXXXXXXXXXXXXXXXOXOXOOXOXXXXXXXX";
     private bool hasSung;
-    private static int noteNumber;
-
+    private int noteNumber;
     void Start()
     {
         tempo = GetComponent<TempoSignal>();

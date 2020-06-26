@@ -12,6 +12,7 @@ public class FatalHit : MonoBehaviour
     private float runSpeed;
     private float jumpSpeed;
     private SwapGravity swapGravity;
+    public Transform BossRespawn;
 
     void Start()
     {
@@ -41,6 +42,11 @@ public class FatalHit : MonoBehaviour
         if (collision.gameObject.tag == "CHECKPOINT")
         {
             respawnPoint = collision.transform.position;
+        }
+
+        if (collision.gameObject.tag == "SPIKES")
+        {
+            transform.position = BossRespawn.transform.position;
         }
     }
 

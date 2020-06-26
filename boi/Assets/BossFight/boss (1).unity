@@ -121,37 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &198303759 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2758391791921759308, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1665126139}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &198303764 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2758391791921759299, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1665126139}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198303759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3499f1f0e9e716e4fb31de45c6830027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &198303765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198303759}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb3b4facbd6977499e77634700acd25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 198303764}
 --- !u!4 &256298740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2758391791921759298, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
@@ -276,6 +245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 396905287186723779, guid: 611a458b3a5370b408501183d79965e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: SPIKES
       objectReference: {fileID: 0}
     - target: {fileID: 7458593116232383912, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
@@ -733,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.75
+      value: 24.5
       objectReference: {fileID: 0}
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
@@ -977,6 +951,7 @@ GameObject:
   - component: {fileID: 1540247796}
   - component: {fileID: 1540247799}
   - component: {fileID: 1540247797}
+  - component: {fileID: 1540247801}
   m_Layer: 0
   m_Name: BossPlatforms
   m_TagString: Untagged
@@ -1027,6 +1002,7 @@ Transform:
   - {fileID: 369595694}
   - {fileID: 1617441185}
   - {fileID: 670879064}
+  - {fileID: 1840239982}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1043,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformCombination:
-  - AXCEX
+  - ABCDE
   - BCXEX
   - BGXXA
   - HXEXG
@@ -1058,9 +1034,23 @@ MonoBehaviour:
   maxHeight: 4
   sword: {fileID: 2082493102}
   onBeat: 0
-  beats: 0
-  bars: 0
   startPhaseBar: 0000000004000000080000000c000000100000001400000018000000
+--- !u!114 &1540247801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540247795}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6198685e2a2ba4434affe6d8321705b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformPosition: {fileID: 1540247795}
+  positionNumbers: 8
+  spriteRenderer: {fileID: 4303670236808267036, guid: db8e184f074eed340b1019971733c4ac,
+    type: 3}
 --- !u!1001 &1543302147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1372,6 +1362,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2758391791921759310, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8,
+        type: 3}
+      propertyPath: BossRespawn
+      value: 
+      objectReference: {fileID: 1840239982}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8ff4a2382d64cbab39b8a971a3dbd8, type: 3}
 --- !u!4 &1760790562 stripped
@@ -1420,12 +1415,12 @@ PrefabInstance:
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.4
+      value: 16.8
       objectReference: {fileID: 0}
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16
+      value: -15.9
       objectReference: {fileID: 0}
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
@@ -1479,6 +1474,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 611a458b3a5370b408501183d79965e8, type: 3}
+--- !u!1 &1840239981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1840239982}
+  - component: {fileID: 1840239983}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: CHECKPOINT
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1840239982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840239981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: -2.21, z: 0}
+  m_LocalScale: {x: 1.25, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540247798}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840239983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840239981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6208273ad455247dfbed5c3637dfd22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1872969833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,

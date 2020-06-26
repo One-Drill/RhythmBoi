@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Jobs;
+using Unity.Collections;
 using UnityEngine;
 
 public class ForestBossPlatforms : MonoBehaviour
@@ -19,23 +21,26 @@ public class ForestBossPlatforms : MonoBehaviour
     public int maxHeight;
     private int notesPlayed;
     public GameObject sword;
-
-
+    private FallingFeathers feathers;
+   
     // spikes
     int spikePattern;
+    private int j;
     int i;
     public bool onBeat;
-    public int beats;
-    public int bars;
+    private int beats;
+    private int bars;
     private int currentPhase;
     private bool phaseEnded;
     [SerializeField] private int[] startPhaseBar;
 
     void Start()
     {
+        j = 0;
         currentPhase = 1;
         noteNumber = 0;
         notesPlayed = 0;
+        feathers = GetComponent<FallingFeathers>();
         melody = GetComponent<FollowerOfTheMelody>();
         tempo = GetComponent<FollowerOfTheRhythm>();
         heightLevel = 0;
@@ -55,6 +60,7 @@ public class ForestBossPlatforms : MonoBehaviour
         {
             beats = 0;
             print(bars);
+       //     feathers.Feathers();
             // gestion de la position des piques sur la plateforme (emplacement temporaire)
             if (bars >= startPhaseBar[1])
             {
@@ -80,17 +86,13 @@ public class ForestBossPlatforms : MonoBehaviour
 
         if (bars >= startPhaseBar[3] && bars <= startPhaseBar[4] && heightLevel == 3)
         {
-            Phase4();
-        }
+            Phase3();
 
-        //initialisation de la dance des epee
-        if (bars >= startPhaseBar[4] && bars <= startPhaseBar[5] && heightLevel == 4)
-        {
-            Phase4();
         }
-        if (bars >= startPhaseBar[6] && bars < startPhaseBar[7] && heightLevel == 5)
+        //initialisation de la dance des plumes
+        if (bars >= startPhaseBar[4])
         {
-            Phase4();
+            Phase3();
         }
         //initialisation des tambours
     }
@@ -141,7 +143,7 @@ public class ForestBossPlatforms : MonoBehaviour
         melodyAnnouncer();
         stepController();
         // cast des piques
-        // spikeDance();
+         spikeDance();
 
     }
 
@@ -230,13 +232,15 @@ public class ForestBossPlatforms : MonoBehaviour
                     }
                 }
             }
+            j++;
             noteNumber++;
             if (noteNumber >= platformCombination[heightLevel].Length)
+            {
+                j = 0;
                 noteNumber = 0;
+            }
         }
     }
-
-
     // a recoder
     void melodyAnnouncer()
     {
@@ -246,18 +250,16 @@ public class ForestBossPlatforms : MonoBehaviour
             {
                 if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
                 {
-                    if (platformCombination[heightLevel][noteNumber].Equals(platform.letter))
+                    if (platformCombination[heightLevel][j].Equals(platform.letter))
                     {
                         platform.lightUp();
                     }
+
                 }
             }
-            noteNumber++;
-            if (noteNumber >= platformCombination[heightLevel].Length)
-                noteNumber = 0;
+            j++;
         }
     }
-
     void spikeDance()
     {
 
@@ -285,5 +287,9 @@ public class ForestBossPlatforms : MonoBehaviour
     private void platformSuccess()
     {
         succesNumber += 1;
+
+
+
+
     }
 }

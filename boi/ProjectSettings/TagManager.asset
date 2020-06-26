@@ -17,6 +17,7 @@ TagManager:
   - BOUNCE
   - GravSwap
   - MovingPlatform
+  - SPIKES
   layers:
   - Default
   - TransparentFX

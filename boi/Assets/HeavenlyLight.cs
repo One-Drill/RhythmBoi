@@ -13,7 +13,6 @@ public class HeavenlyLight : MonoBehaviour
     private static float minScaleStatic = 0.1f;
     private Vector3 tmpScale;
 
-
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
