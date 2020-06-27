@@ -13,6 +13,7 @@ public class MythicalPlatform : MonoBehaviour
     private float lightTime = 0.1f;
     private HeavenlyLight heavenlyLight;
     public Spikes spikes;
+    public int life;
 
     void Awake()
     {

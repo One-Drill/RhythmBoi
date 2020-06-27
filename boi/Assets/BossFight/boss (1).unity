@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: 1540247799}
   - component: {fileID: 1540247797}
   - component: {fileID: 1540247801}
+  - component: {fileID: 1540247800}
   m_Layer: 0
   m_Name: BossPlatforms
   m_TagString: Untagged
@@ -1034,7 +1035,52 @@ MonoBehaviour:
   maxHeight: 4
   sword: {fileID: 2082493102}
   onBeat: 0
-  startPhaseBar: 0000000004000000080000000c000000100000001400000018000000
+  startPhaseBar: 0000000004000000080000000c0000001000000014000000180000001c000000200000002400000028000000
+--- !u!114 &1540247800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540247795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcc2ea0cecf548ddab946c3623997ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectedDrums:
+  - A
+  - A
+  - A
+  - A
+  - B
+  - B
+  - B
+  - B
+  - C
+  - C
+  - C
+  - C
+  - D
+  - D
+  - D
+  - D
+  - E
+  - E
+  - E
+  - E
+  - F
+  - F
+  - F
+  - F
+  - G
+  - G
+  - G
+  - G
+  - H
+  - H
+  - H
+  - 
 --- !u!114 &1540247801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1088,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540247795}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6198685e2a2ba4434affe6d8321705b9, type: 3}
   m_Name: 
@@ -1420,7 +1466,7 @@ PrefabInstance:
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.9
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 8143963511550753847, guid: 611a458b3a5370b408501183d79965e8,
         type: 3}

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8223699147629509218}
   m_Layer: 0
   m_Name: spikes
-  m_TagString: FATAL
+  m_TagString: SPIKES
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

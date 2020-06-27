@@ -21,7 +21,16 @@ public class ForestBossPlatforms : MonoBehaviour
     public int maxHeight;
     private int notesPlayed;
     public GameObject sword;
+
+
+    // drums
+    private Drums drums;
+
+
+    // feathers
     private FallingFeathers feathers;
+
+
    
     // spikes
     int spikePattern;
@@ -43,6 +52,7 @@ public class ForestBossPlatforms : MonoBehaviour
         feathers = GetComponent<FallingFeathers>();
         melody = GetComponent<FollowerOfTheMelody>();
         tempo = GetComponent<FollowerOfTheRhythm>();
+        drums = GetComponent<Drums>();
         heightLevel = 0;
         bars = 0;
         melody.setMusicTime(0);
@@ -59,8 +69,9 @@ public class ForestBossPlatforms : MonoBehaviour
         if (beats == 4)
         {
             beats = 0;
-            print(bars);
-       //     feathers.Feathers();
+            if(bars >= startPhaseBar[6] && bars < startPhaseBar[10])
+            drums.DrumPat();
+          //  feathers.Feathers();
             // gestion de la position des piques sur la plateforme (emplacement temporaire)
             if (bars >= startPhaseBar[1])
             {
@@ -163,8 +174,6 @@ public class ForestBossPlatforms : MonoBehaviour
         // cast des piques
         // spikeDance();
         // cast des épées
-        if (gameObject.activeInHierarchy == false)
-            sword.SetActive(true);
     }
 
     void stepController()
