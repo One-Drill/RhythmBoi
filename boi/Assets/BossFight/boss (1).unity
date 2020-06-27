@@ -951,7 +951,6 @@ GameObject:
   - component: {fileID: 1540247796}
   - component: {fileID: 1540247799}
   - component: {fileID: 1540247797}
-  - component: {fileID: 1540247801}
   - component: {fileID: 1540247800}
   m_Layer: 0
   m_Name: BossPlatforms

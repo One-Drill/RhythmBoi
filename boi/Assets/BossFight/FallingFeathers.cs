@@ -23,7 +23,6 @@ public class FallingFeathers : MonoBehaviour
             i++;
         }
         i = 0;
-        print("tab[i]");
     }
 
     // Update is called once per frame
