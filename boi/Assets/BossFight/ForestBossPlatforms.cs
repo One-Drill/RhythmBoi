@@ -157,7 +157,7 @@ public class ForestBossPlatforms : MonoBehaviour
         melodyAnnouncer();
         stepController();
         // cast des piques
-         spikeDance();
+         //spikeDance();
 
     }
 
@@ -176,7 +176,7 @@ public class ForestBossPlatforms : MonoBehaviour
         melodyAnnouncer();
         stepController();
         // cast des piques
-         spikeDance();
+      //   spikeDance();
         // cast des épées
     }
 
