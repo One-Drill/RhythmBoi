@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Enemie_Mushroom
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 456267583469039263, guid: f660670e4b5b67b4390b2e2b225c3cce, type: 3}
+  - {fileID: -5608935539161548711, guid: f660670e4b5b67b4390b2e2b225c3cce, type: 3}
+  - {fileID: 5792456140463030805, guid: f660670e4b5b67b4390b2e2b225c3cce, type: 3}
+  - {fileID: 8366556721673355470, guid: f660670e4b5b67b4390b2e2b225c3cce, type: 3}
+  m_MinSpeed: 2
+  m_MaxSpeed: 2
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
