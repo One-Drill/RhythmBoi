@@ -46,6 +46,7 @@ public class ForestBossPlatforms : MonoBehaviour
     void Start()
     {
         j = 0;
+        //setup un phase initializer pour debug
         currentPhase = 1;
         noteNumber = 0;
         notesPlayed = 0;
@@ -62,25 +63,26 @@ public class ForestBossPlatforms : MonoBehaviour
     {
         //gestion battements et mesures
         onBeat = tempo.canMoveToRythm();
-        if (onBeat)
-        {
-            beats++;
-        }
-        if (beats == 4)
-        {
-            beats = 0;
-            if(bars >= startPhaseBar[6] && bars < startPhaseBar[10])
-             drums.DrumPat();
-          //  feathers.Feathers();
-            // gestion de la position des piques sur la plateforme (emplacement temporaire)
-            if (bars >= startPhaseBar[1])
-            {
-                spikePattern++;
-                if (spikePattern >= spikeCombination.Length)
-                    spikePattern = 0;
-            }
-            bars++;
-        }
+		if (onBeat)
+		{
+			beats++;
+
+			if (beats == 4)
+			{
+				beats = 0;
+				if (bars >= startPhaseBar[6] && bars < startPhaseBar[13])
+					drums.DrumPat();
+				//  feathers.Feathers();
+				// gestion de la position des piques sur la plateforme (emplacement temporaire)
+				if (bars >= startPhaseBar[1])
+				{
+					spikePattern++;
+					if (spikePattern >= spikeCombination.Length)
+						spikePattern = 0;
+				}
+				bars++;
+			}
+		}
         // lancement des phases en fonction de l'avancement de la musique /
 
         //initialisation des lumieres
@@ -166,13 +168,14 @@ public class ForestBossPlatforms : MonoBehaviour
             //melody.setMusicTime(16)
             melody.setMusicTime(32);
             bars = startPhaseBar[2];
-        }
+			noteNumber = 0;
+		}
         // cast des elements inclus dans la phase
         platformLogic();
         melodyAnnouncer();
         stepController();
         // cast des piques
-        // spikeDance();
+         spikeDance();
         // cast des épées
     }
 

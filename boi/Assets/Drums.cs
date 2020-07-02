@@ -8,9 +8,10 @@ public class Drums : MonoBehaviour
     private int drumPattern;
     private int i;
 
-    
-    // Start is called before the first frame update
-    // Update is called once per frame
+
+    // fonction pour les tambours du BOSS, appelé depuis forestbossplatform
+    // itere dans chaque enfant de forestbossplatform, compare sa lettre
+    //si elle correspond a celle de la public string  affectedDrums, ses points de vie sont reduit, si la plateforme arrive a 0 elle tombe
    public void DrumPat()
     {
         foreach (Transform child in transform)
