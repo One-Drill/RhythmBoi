@@ -6,35 +6,37 @@ public class FallingFeathers : MonoBehaviour
 {
     public GameObject platformPosition;
     public int positionNumbers;
-    public SpriteRenderer spriteRenderer;
-    private FollowerOfTheRhythm tenpo;
+    public GameObject feather;
+    private FollowerOfTheRhythm tempo;
     private int i;
-    //public Transform[] tab;
     private Transform[] tab;
+    public string[] affectedFeather;
+    private int featherPattern;
+    int j;
 
-    void Start()
-    {
-        tab = new Transform[positionNumbers];
-        tenpo = GetComponent<FollowerOfTheRhythm>();
-        platformPosition = GameObject.Find("BossPlatforms");
-       while (i < positionNumbers)
-        {
-            tab[i] = platformPosition.transform.GetChild(i).transform;
-            i++;
-        }
-        i = 0;
-    }
-
-    // Update is called once per frame
      public void Feathers()
     {
-            CreateFeathers(tab[i]);
+            CreateFeathers();
     }
 
-        void CreateFeathers(Transform position)
+    void CreateFeathers()
+    {     
+        foreach (Transform child in transform)
         {
-            if (++i >= positionNumbers)
-                i = 0;
-            Instantiate(spriteRenderer, position.transform.position, Quaternion.identity);
+            if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
+            {
+                
+                if (affectedFeather[featherPattern][i].Equals(platform.letter))
+                {
+                    Instantiate(feather, platform.transform.transform.Find("Firepoint").transform.position, Quaternion.identity);
+                }
+            }
         }
+   //    i++;
+    //    if (i >= affectedFeather[featherPattern].Length)
+      //     i = 0;
+        featherPattern++;
+       if (featherPattern >= affectedFeather.Length)
+              featherPattern = 0;
     }
+}

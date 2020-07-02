@@ -37,8 +37,8 @@ public class ForestBossPlatforms : MonoBehaviour
     private int j;
     int i;
     public bool onBeat;
-    private int beats;
-    private int bars;
+    public int beats;
+    public int bars;
     private int currentPhase;
     private bool phaseEnded;
     [SerializeField] private int[] startPhaseBar;
@@ -55,7 +55,7 @@ public class ForestBossPlatforms : MonoBehaviour
         tempo = GetComponent<FollowerOfTheRhythm>();
         drums = GetComponent<Drums>();
         heightLevel = 0;
-        bars = 0;
+        //bars = 0;
         melody.setMusicTime(0);
     }
 
@@ -67,12 +67,13 @@ public class ForestBossPlatforms : MonoBehaviour
 		{
 			beats++;
 
-			if (beats == 4)
+            if (beats == 4)
 			{
 				beats = 0;
-				if (bars >= startPhaseBar[6] && bars < startPhaseBar[13])
+                if (bars >= startPhaseBar[4])
+                    feathers.Feathers();
+                if (bars >= startPhaseBar[6])
 					drums.DrumPat();
-				//  feathers.Feathers();
 				// gestion de la position des piques sur la plateforme (emplacement temporaire)
 				if (bars >= startPhaseBar[1])
 				{
