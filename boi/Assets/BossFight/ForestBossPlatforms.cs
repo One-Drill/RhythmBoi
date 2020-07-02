@@ -70,7 +70,7 @@ public class ForestBossPlatforms : MonoBehaviour
             if (beats == 4)
 			{
 				beats = 0;
-                if (bars >= startPhaseBar[4])
+                if (bars >= startPhaseBar[4] )
                     feathers.Feathers();
                 if (bars >= startPhaseBar[6])
 					drums.DrumPat();
