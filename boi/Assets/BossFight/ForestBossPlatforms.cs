@@ -66,14 +66,16 @@ public class ForestBossPlatforms : MonoBehaviour
 		if (onBeat)
 		{
 			beats++;
-
-            if (beats == 2)
+            if (beats == 2 || beats == 4)
+            {
+                if (bars >= startPhaseBar[2])
+                    feathers.Feathers();
+            }
+            if (beats == 4)
 			{
 				beats = 0;
-                if (bars >= startPhaseBar[4] )
-                    feathers.Feathers();
                 if (bars >= startPhaseBar[6])
-				//	drums.DrumPat();
+					drums.DrumPat();
 				// gestion de la position des piques sur la plateforme (emplacement temporaire)
 				if (bars >= startPhaseBar[1])
 				{
@@ -83,10 +85,11 @@ public class ForestBossPlatforms : MonoBehaviour
 				}
 				bars++;
 			}
-		}
-        // lancement des phases en fonction de l'avancement de la musique /
 
+        }
+        // lancement des phases en fonction de l'avancement de la musique /
         //initialisation des lumieres
+
         if (bars <= startPhaseBar[1])
                 Phase1();
 
