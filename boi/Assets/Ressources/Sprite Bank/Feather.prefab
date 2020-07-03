@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -204,6 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8321668596895012446}
   speed: -12
+  spriteRenderer: {fileID: 3839176634966069351}
+  spriteOne: {fileID: 21300000, guid: cd231cec6df7a284c9789710b48ba7c2, type: 3}
+  spriteTwo: {fileID: 21300000, guid: 9db3eab767ef2ba4cbfe7d2466bf2366, type: 3}
 --- !u!114 &6002239710677458908
 MonoBehaviour:
   m_ObjectHideFlags: 0

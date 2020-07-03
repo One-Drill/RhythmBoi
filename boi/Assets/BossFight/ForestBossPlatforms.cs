@@ -67,7 +67,7 @@ public class ForestBossPlatforms : MonoBehaviour
 		{
 			beats++;
 
-            if (beats == 4)
+            if (beats == 2)
 			{
 				beats = 0;
                 if (bars >= startPhaseBar[4] )
