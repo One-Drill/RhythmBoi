@@ -73,7 +73,7 @@ public class ForestBossPlatforms : MonoBehaviour
                 if (bars >= startPhaseBar[4] )
                     feathers.Feathers();
                 if (bars >= startPhaseBar[6])
-					drums.DrumPat();
+				//	drums.DrumPat();
 				// gestion de la position des piques sur la plateforme (emplacement temporaire)
 				if (bars >= startPhaseBar[1])
 				{

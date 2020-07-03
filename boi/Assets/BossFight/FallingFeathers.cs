@@ -8,7 +8,7 @@ public class FallingFeathers : MonoBehaviour
     public int positionNumbers;
     public GameObject feather;
     private FollowerOfTheRhythm tempo;
-    private static int i = 0;
+    private static int i = 1000;
     private Transform[] tab;
     public string[] affectedFeather;
     private int featherPattern;
@@ -22,17 +22,7 @@ public class FallingFeathers : MonoBehaviour
 
     void CreateFeathers()
     {     
-        foreach (Transform child in transform)
-        {
-            if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
-            {
-                
-                if (affectedFeather[featherPattern][i].Equals(platform.letter))
-                {
-                    Instantiate(feather, platform.transform.transform.Find("Firepoint").transform.position, Quaternion.identity);
-                }
-            }
-        }
+       
        i++;
         if (i >= affectedFeather[featherPattern].Length)
         {
@@ -50,6 +40,17 @@ public class FallingFeathers : MonoBehaviour
                             break;
                        featherPattern++;
                     }                      
+                }
+            }
+        }
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.TryGetComponent(out MythicalPlatform platform))
+            {
+
+                if (affectedFeather[featherPattern][i].Equals(platform.letter))
+                {
+                    Instantiate(feather, platform.transform.transform.Find("Firepoint").transform.position, Quaternion.identity);
                 }
             }
         }
