@@ -967,7 +967,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   onBeat: 0
   beats: 0
-  bars: 0
+  bars: 16
   startPhaseBar: 0000000004000000080000000c0000001000000014000000180000001c000000200000002400000028000000
 --- !u!114 &1540247800
 MonoBehaviour:
@@ -1030,14 +1030,14 @@ MonoBehaviour:
   positionNumbers: 8
   feather: {fileID: 4882020934856547950, guid: 0136225f3821441439c85d7bf27a5fc6, type: 3}
   affectedFeather:
-  - ABC
-  - BCA
-  - CDB
-  - DCE
-  - EFD
-  - FEG
-  - GHF
-  - HFG
+  - AFBD
+  - BCGE
+  - CFAG
+  - DBEH
+  - ECAH
+  - FGBD
+  - GAHC
+  - HFDE
   player: {fileID: 256298740}
 --- !u!1 &1599279743
 GameObject:
