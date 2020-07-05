@@ -215,6 +215,8 @@ public class CharacterController : MonoBehaviour
                 jumpDeceleration = fastStop;
             }
             verticalVelocity -= jumpDeceleration * Time.deltaTime;
+            if (verticalVelocity < 0)
+                verticalVelocity = 0;
             if (playerCollisions.ShouldSnapToCeiling(verticalVelocity, out float distanceToSnap))
             {
                 m_Transform.Translate(new Vector3(0, distanceToSnap));
